@@ -1,7 +1,6 @@
 name: Check the source code
 on:
   pull_request:
-
 jobs:
   test:
     name: Check the source code
