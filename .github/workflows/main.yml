@@ -18,7 +18,7 @@ jobs:
         id: cache
         uses: actions/cache@v1
         with:
-        path: ./tools/php-cs-fixer/vendor
+          path: ./tools/php-cs-fixer/vendor
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
