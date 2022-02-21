@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Cache;
 Route::get('/', function () {
     $nagai = 'start';
     for ($i = 0; $i < 99999999 ; $i++) {
-                                                    $nagai .= 'あ';
+        $nagai .= 'あ';
     }
     Cache::put('test2', $nagai);
-    return view( 'welcome' );
+    return view('welcome');
 });
 
 Route::get('/test', function () {
