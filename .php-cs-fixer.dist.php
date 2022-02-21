@@ -16,7 +16,7 @@ $config = new PhpCsFixer\Config();
 return $config
   ->setRiskyAllowed(true)
   ->setRules([
-    '@PSR12' => true, //phpintelephenseと同じ
+    '@PSR2' => true, //phpintelephenseと同じ
     'trim_array_spaces' => true, //func( arg ) => func(arg);
     'class_attributes_separation' => true, //use HasApiTokens, HasFactory, Notifiable; これが縦にならないように
   ])
