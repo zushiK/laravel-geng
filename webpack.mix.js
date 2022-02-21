@@ -11,8 +11,8 @@ const mix = import('laravel-mix');
  |
  */
 
-mix.ts('resources/js/app.ts', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-    ])
-    .sass('resources/sass/app.scss', 'public/css')
-    .vue();
+mix
+  .ts('resources/js/app.ts', 'public/js')
+  .postCss('resources/css/app.css', 'public/css', [])
+  .sass('resources/sass/app.scss', 'public/css')
+  .vue();
