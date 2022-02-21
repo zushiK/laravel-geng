@@ -14,6 +14,19 @@ jobs:
         run: npm ci
       - name: Check js,ts type,format
         run: npm run fix
+       - name: Cache vendor
+      id: cache
+      uses: actions/cache@v1
+      with:
+        path: ./tools/php-cs-fixer/vendor
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+      - name: install php-cs-fixer
+        run: composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+      - name: exec
+        run: |
+        ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply Format Change
