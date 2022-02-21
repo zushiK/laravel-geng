@@ -14,12 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue';
 
-const message = ref("Hello Laravel Vue 3");
+const message = ref('Hello Laravel Vue 3');
 
 onMounted(() => {
-  console.log("Component mounted.");
+  console.log('Component mounted.');
 });
 </script>
-

@@ -19365,9 +19365,9 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var message = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)("Hello Laravel Vue 3");
+    var message = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('Hello Laravel Vue 3');
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
-      console.log("Component mounted.");
+      console.log('Component mounted.');
     });
     var __returned__ = {
       message: message
@@ -19438,7 +19438,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({});
-app.component("SampleComponent", _components_Sample_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+app.component('SampleComponent', _components_Sample_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 app.mount('#app');
 
 /***/ }),

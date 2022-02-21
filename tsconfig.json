@@ -1,19 +1,16 @@
 {
   "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext",
-      "rootDir": "./resources",
-      "moduleResolution": "node",
-      "strict": true,
-      // "importHelpers": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "sourceMap": true,
-      "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "rootDir": "./resources",
+    "moduleResolution": "node",
+    "strict": true,
+    // "importHelpers": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": "."
   },
-  "include": [
-      "resources/js/**/*.ts",
-      "resources/js/**/*.vue"
-  ],
+  "include": ["resources/js/**/*.ts", "resources/js/**/*.vue"],
   "exclude": ["node_modules"]
 }

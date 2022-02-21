@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $nagai = 'start';
+    for ($i = 0; $i < 99999999; $i++) {
+        # code...
+        $nagai .= 'あ';
+    }
+    Cache::put('test2', $nagai);
+    return view('welcome');
+});
+
+Route::get('/test', function () {
+    $time_start = microtime(true);
+
+    // 計測したい処理
+
+    $temp = Cache::get('test2');
+    $time = microtime(true) - $time_start;
+
+    // dd(strlen($temp));
+    dd("{$time} 秒");
     return view('welcome');
 });
