@@ -10,10 +10,26 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - name: Install packages
         run: npm ci
-      - name: Check js,ts type,format
+      - name: exec ESlint Prettier
         run: npm run fix
+      # - name: Cache vendor
+      #   id: cache
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ./tools/php-cs-fixer/vendor
+      #     key: --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+      #     restore-keys: |
+      #       ${{ runner.os }}-composer-
+      - name: install php-cs-fixer
+        run: composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+      - name: exec php-cs-fixer
+        run: |
+          tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply Format Change
