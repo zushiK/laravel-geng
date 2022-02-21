@@ -1,3 +1,4 @@
-div {
-  color: aqua;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
