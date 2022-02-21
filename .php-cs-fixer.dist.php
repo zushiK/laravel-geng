@@ -15,6 +15,7 @@ $config = new PhpCsFixer\Config();
 
 return $config
   ->setRiskyAllowed(true)
+
   ->setRules([
     '@PSR2' => true, //phpintelephenseと同じ
     'trim_array_spaces' => true, //func( arg ) => func(arg);

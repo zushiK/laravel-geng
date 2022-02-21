@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Cache;
 
 Route::get('/', function () {
     $nagai = 'start';
-    for ($i = 0; $i < 99999999; $i++) {
-        # code...
+    for ($i = 0; $i < 99999999 ; $i++) {
         $nagai .= 'あ';
     }
     Cache::put('test2', $nagai);
