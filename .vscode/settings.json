@@ -1,12 +1,15 @@
 {
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // フォーマッタをprettierに指定
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // フォーマッタをprettierに指定
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // フォーマッタをprettierに指定
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true, // ファイル保存時にPrettierでフォーマット
   "editor.codeActionsOnSave": {
