@@ -2,3 +2,4 @@ public
 vendor
 webpack.mix.js
 tailwind.config.js
+resources/js/@types/global.d.ts
