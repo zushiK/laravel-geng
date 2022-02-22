@@ -9,7 +9,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "allowJs": true
   },
   "include": ["resources/js/**/*.ts", "resources/js/**/*.vue"],
   "exclude": ["node_modules"]

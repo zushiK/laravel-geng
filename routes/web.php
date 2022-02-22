@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,23 +14,11 @@ use Illuminate\Support\Facades\Cache;
 */
 
 Route::get('/', function () {
-    // $nagai = 'start';
-    // for ($i = 0; $i < 99999999 ; $i++) {
-    //     $nagai .= 'あ';
-    // }
-    // Cache::put('test2', $nagai);
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    $time_start = microtime(true);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-    // 計測したい処理
-
-    $temp = Cache::get('test2');
-    $time = microtime(true) - $time_start;
-
-    // dd(strlen($temp));
-    dd("{$time} 秒");
-    return view('welcome');
-});
+require __DIR__.'/auth.php';
