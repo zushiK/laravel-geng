@@ -1,0 +1,24 @@
+# name: Build before merge
+# on:
+#   push:
+#     branches:
+#       - master
+#       - develop
+# jobs:
+#   build:
+#     name: build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           ref: ${{ github.head_ref }}
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: '16'
+#       - name:
+#         run: npm run dev
+#       - uses: stefanzweifel/git-auto-commit-action@v4
+#         with:
+#           commit_message: chore built files
+#           branch: ${{ github.head_ref }}
