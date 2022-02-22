@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Operator;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -35,14 +35,15 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'login_id' => ['required', 'string', 'max:255', 'unique:dtb_operators'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        $user = Operator::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'login_id' => $request->login_id,
             'password' => Hash::make($request->password),
+            'fld_code_list' => [1,2,3],
         ]);
 
         event(new Registered($user));
