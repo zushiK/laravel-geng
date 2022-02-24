@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Operator;
+use App\Models\Customer;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    dd(Customer::all()[0]->id);
+    dd(Operator::all()[0]->id);
     return view('welcome');
 });
 

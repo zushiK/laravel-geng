@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Operator extends Authenticatable
+class Customer extends Authenticatable
 {
     //テーブル名指定
-    protected $table = 'dtb_operators';
+    protected $table = 'dtb_customer';
   
     //プライマリキーのカラム名がid以外なので設定
-    protected $primaryKey = 'operator_id';
+    protected $primaryKey = 'customer_id';
     
     //既存のテーブルはカラムが多いので基本的には$fillableではなく$gaurdedで指定する
-    protected $guarded = ['operator_id'];
+    protected $guarded = ['customer_id'];
     
     protected $hidden = ['password'];
     
