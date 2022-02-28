@@ -19,6 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        dump('customer');
+        dd(auth());
         return view('customer.home');
     }
 }

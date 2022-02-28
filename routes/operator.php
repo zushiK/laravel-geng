@@ -38,7 +38,7 @@ Route::middleware('auth:operator')->group(function () {
     Route::get('/', [HomeController::class, 'index'])
                 ->name('home');
     Route::get('home', [HomeController::class, 'index'])
-    ->name('home');
+                ->name('home');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });

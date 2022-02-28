@@ -13,18 +13,16 @@ use App\Http\Controllers\Customer\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    dump(1);
+    // ホームが出て欲しい
     return view('customer.welcome');
 })->name('welcome');
-Route::get('/a', [RegisteredUserController::class, 'test'])
-    ->name('a');
 
 Route::middleware('auth:customer')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
-    ->middleware('guest')
+    ->middleware('guest') //RedirectIfAuthenticated もしログインしてたら。。。の設定が呼ばれる
     ->name('register');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
