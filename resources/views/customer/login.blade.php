@@ -12,15 +12,15 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('customer.login') }}">
             @csrf
 
             <!-- Email Address -->
             <div>
-                <x-label for="login_id" :value="__('Email')" />
+                <x-label for="email" :value="__('Email')" />
 
-                <x-input id="login_id" class="block mt-1 w-full" type="text" name="login_id" :value="old('login_id')"
-                    required autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required
+                    autofocus />
             </div>
 
             <!-- Password -->

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Operator\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Operator;
@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('operator.auth.register');
     }
 
     /**
@@ -50,6 +50,12 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::OPERATOR_HOME);
+    }
+
+    public function test()
+    {
+        dump('testdesu');
+        dump('loginomedetou');
     }
 }

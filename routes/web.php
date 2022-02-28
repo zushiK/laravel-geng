@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Operator;
-use App\Models\Customer;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +13,5 @@ use App\Models\Customer;
 |
 */
 
-Route::get('/', function () {
-    dd(Customer::all()[0]->id);
-    dd(Operator::all()[0]->id);
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+// 一般・会員はroutes/customer.php
+// 管理者はroutes/operator.php

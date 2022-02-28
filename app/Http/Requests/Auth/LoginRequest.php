@@ -29,8 +29,9 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'login_id' => ['required', 'string'],
+            'login_id' => ['string'],
             'password' => ['required', 'string'],
+            'email' => ['email', 'string'],
         ];
     }
 
@@ -45,13 +46,27 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('login_id', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
-
-            throw ValidationException::withMessages([
-                'login_id' => trans('auth.failed'),
-            ]);
+        if ($this->routeIs('operator.*')) {
+            $guard = 'operator';
+            
+            if (! Auth::guard($guard)->attempt($this->only('login_id', 'password'), $this->boolean('remember'))) {
+                RateLimiter::hit($this->throttleKey());
+            
+                throw ValidationException::withMessages([
+                    'login_id' => trans('auth.failed'),
+                ]);
+            }
+        } else {
+            $guard = 'customer';
+            if (! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+                RateLimiter::hit($this->throttleKey());
+    
+                throw ValidationException::withMessages([
+                    'email' => trans('auth.failed'),
+                ]);
+            }
         }
+
 
         RateLimiter::clear($this->throttleKey());
     }
