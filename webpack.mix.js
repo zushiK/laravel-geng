@@ -18,3 +18,7 @@ mix
     postCss: [require('tailwindcss')]
   })
   .vue();
+
+if (mix.inProduction()) {
+  mix.version();
+}
