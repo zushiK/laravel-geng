@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // ホームが出て欲しい
-    return view('customer.welcome');
-})->name('welcome');
+    return view('customer.index');
+});
 
 Route::middleware('auth:customer')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
