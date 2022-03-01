@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,8 +20,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dump('customer');
-        dd(auth());
-        return view('customer.home');
+        return view(RouteServiceProvider::CUSTOMER_HOME);
     }
 }

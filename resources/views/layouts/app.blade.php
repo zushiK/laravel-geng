@@ -21,7 +21,11 @@
 <body>
     <div id="app">
         <!-- Page Header -->
-        @include('layouts.header')
+        @if (Request::routeIs('operator.*'))
+            @include('layouts.operator.header')
+        @else
+            @include('layouts.customer.header')
+        @endif
 
         <!-- Page Content -->
         <main>
@@ -29,7 +33,11 @@
         </main>
 
         <!-- Page Header -->
-        @include('layouts.footer')
+        @if (Request::routeIs('operator.*'))
+            @include('layouts.operator.footer')
+        @else
+            @include('layouts.customer.footer')
+        @endif
     </div>
 
 </body>

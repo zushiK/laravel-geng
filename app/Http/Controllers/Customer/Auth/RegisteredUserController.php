@@ -50,13 +50,13 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::CUSTOMER_HOME);
     }
 
     public function test()
     {
         $a = Customer::find(1)->update(['password' => Hash::make(11111111)]);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::CUSTOMER_HOME);
     }
 }
