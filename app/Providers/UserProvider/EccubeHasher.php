@@ -26,7 +26,7 @@ class EccubeHasher implements HasherContract
     public function make($value, array $options = [])
     {
         // メアドカラムはユニークではないが、ECCUBEの登録時に重複チェックをしているためユニークなのが保証されている（はず）
-        return hash_hmac('sha256', $value . ':' . 'poupraijoutrouchujaeraiclathaesaeturaili', $options['salt']);
+        return hash_hmac(config('auth.eccube_password_hash_algos'), $value . ':' . config('auth.eccube_auth_magic'), $options['salt']);
     }
 
     /**
