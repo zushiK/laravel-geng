@@ -18,8 +18,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        // session(['url.intended' => $_SERVER['HTTP_REFERER']]);
-        redirect()->setIntendedUrl($_SERVER['HTTP_REFERER']);
+        // ログイン後は元いたページに飛ばす
+        $prev_url = $_SERVER['HTTP_REFERER'] ?? null;
+        session(['url.intended' => $prev_url]);
+        redirect()->setIntendedUrl($prev_url) ;
         return view('customer.auth.login');
     }
 

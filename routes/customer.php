@@ -12,17 +12,14 @@ use App\Http\Controllers\Customer\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    // ホームが出て欲しい
-    return view('customer.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('/products', function () {
-    // ホームが出て欲しい
     return view('customer.product.list');
 });
 
 Route::middleware('auth:customer')->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])

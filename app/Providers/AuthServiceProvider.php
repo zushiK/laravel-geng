@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Providers\UserProvider\EccubeHasher;
 use App\Providers\UserProvider\EccubeUserProvider;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +30,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // ECcube認証登録
         Auth::provider('eccube', function ($app, array $config) {
-            dd($app);
-            return new EccubeUserProvider($app['hash'], $config['model']);
+            return new EccubeUserProvider(new EccubeHasher, $config['model']);
         });
     }
 }

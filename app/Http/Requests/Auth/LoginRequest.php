@@ -48,7 +48,6 @@ class LoginRequest extends FormRequest
 
         if ($this->routeIs('operator.*')) {
             $guard = 'operator';
-            
             if (! Auth::guard($guard)->attempt($this->only('login_id', 'password'), $this->boolean('remember'))) {
                 RateLimiter::hit($this->throttleKey());
             
