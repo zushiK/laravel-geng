@@ -127,16 +127,4 @@ return [
     */
 
     'password_timeout' => 10800,
-
-
-    /**
-     * Eccube認証で必要なハッシュ化方式
-     */
-    'eccube_password_hash_algos' => env('ECCUBE_PASSWORD_HASH_ALGOS'),
-
-    /**
-     * Eccube認証で必要な定数
-     */
-    'eccube_auth_magic' => env('ECCUBE_AUTH_MAGIC')
-
 ];
