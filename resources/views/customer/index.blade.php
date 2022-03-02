@@ -1,11 +1,8 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
     <div>
         ようこそ！
+        Laravel認証を突破できなかったら
+        ECCUBEの認証にかけるよ
     </div>
     <top-page></top-page>
 </x-app-layout>

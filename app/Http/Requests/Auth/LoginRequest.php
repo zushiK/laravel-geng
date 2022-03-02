@@ -60,15 +60,31 @@ class LoginRequest extends FormRequest
             $guard = 'customer';
             if (! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
                 RateLimiter::hit($this->throttleKey());
-    
-                throw ValidationException::withMessages([
-                    'email' => trans('auth.failed'),
-                ]);
+
+                // if ($this->authenticateWithEccubeAuth()) {
+                //     // redirect()->route();
+                // } else {
+                //     throw ValidationException::withMessages([
+                //         'email' => trans('auth.failed'),
+                //     ]);
+                // }
             }
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed'),
+            ]);
         }
 
-
         RateLimiter::clear($this->throttleKey());
+    }
+
+    /**
+     * ECcube認証
+     *
+     * @return boolean
+     */
+    public function authenticateWithEccubeAuth():bool
+    {
+        return true;
     }
 
     /**

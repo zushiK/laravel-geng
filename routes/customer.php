@@ -16,6 +16,10 @@ Route::get('/', function () {
     // ホームが出て欲しい
     return view('customer.index');
 });
+Route::get('/products', function () {
+    // ホームが出て欲しい
+    return view('customer.product.list');
+});
 
 Route::middleware('auth:customer')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');

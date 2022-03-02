@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\EccubeServiceProvider;
+
 return [
 
     /*
@@ -40,6 +42,10 @@ return [
             'driver' => 'session',
             'provider' => 'customers',
         ],
+        'eccube_customer' => [
+            'driver' => 'session',
+            'provider' => 'eccube_customers',
+        ],
         'operator' => [
             'driver' => 'session',
             'provider' => 'operators',
@@ -65,7 +71,11 @@ return [
 
     'providers' => [
         'customers' => [
-            'driver' => 'eloquent',
+            'driver' => 'eccube',
+            'model' => App\Models\Customer::class,
+        ],
+        'eccube_customers' => [
+            'driver' => 'eccube',
             'model' => App\Models\Customer::class,
         ],
         'operators' => [
