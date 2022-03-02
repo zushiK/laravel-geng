@@ -15,7 +15,7 @@
     "editor.defaultFormatter": "shufo.vscode-blade-formatter"
   },
   "editor.quickSuggestions": {
-    "strings": true,
+    "strings": true
   },
   "editor.formatOnSave": true, // ファイル保存時にPrettierでフォーマット
   "editor.codeActionsOnSave": {
