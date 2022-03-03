@@ -1,6 +1,4 @@
-<x-guest-layout>
-    <div>登録は未実装</div>
-    <div>項目がたくさんある</div>
+<x-app-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -57,4 +55,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-app-layout>
