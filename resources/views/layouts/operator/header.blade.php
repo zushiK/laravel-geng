@@ -14,14 +14,14 @@
 
             <div class="order-1 md:order-2 ">
                 <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
-                    href="/">
+                    href="{{ route('operator.home') }}">
                     🐕NBCLaravel😸
                 </a>
 
             </div>
 
             <div class="order-2 md:order-3 flex items-center ml-auto" id="nav-content">
-                <form method="POST" action="{{ route('customer.logout') }}">
+                <form method="POST" action="{{ route('operator.logout') }}">
                     @csrf
                     <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
                         href="{{ route('operator.logout') }}"

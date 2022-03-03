@@ -42,7 +42,7 @@
 
             <div class="order-1 md:order-2 m-auto">
                 <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
-                    href="/">
+                    href="{{ route('customer.home') }}">
                     🐕NBCLaravel😸
                 </a>
             </div>
