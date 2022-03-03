@@ -1,5 +1,6 @@
 <header>
-    <nav id="header" class="w-full z-30 top-0 py-1">
+    <div role="none" class=" h-16"></div>
+    <nav id="header" class="w-full z-30 top-0 py-1 fixed  bg-white">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-center mt-0 px-6 py-3">
 
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
@@ -22,11 +23,12 @@
                             <form method="POST" action="{{ route('customer.logout') }}">
                                 @csrf
                                 <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                                        href="{{ route('customer.logout') }}" onclick="event.preventDefault();">ログアウト</a>
+                                        href="{{ route('customer.logout') }}"
+                                        onclick="event.preventDefault();this.closest('form').submit();">ログアウト</a>
                                 </li>
                             </form>
                         @else
-                            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                            <li><a class="   inline-block no-underline hover:text-black hover:underline py-2 px-4"
                                     href="{{ route('customer.login') }}">ログイン</a></li>
                             <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
                                     href="{{ route('customer.register') }}">新規登録</a></li>

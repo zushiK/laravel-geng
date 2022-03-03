@@ -37,13 +37,16 @@ class MigrateFromEccubeController extends Controller
         $request->validate([
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'accepted' => ['required', 'accepted'],
-
         ]);
 
         $user = $request->user();
 
         $this->logout($request);
 
+        $user->update([
+            'new_password' => Hash::make($request->password),
+        ]);
+        
         // 指定しないとauth.phpのdefaultが呼ばれる
         Auth::guard('customer')->login($user);
 

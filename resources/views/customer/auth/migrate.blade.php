@@ -1,11 +1,4 @@
-<x-guest-layout>
-    <h1 class=" text-xl">
-        移行ページ
-        利用規約に同意
-
-        新しいパスワードを入力してもらう
-
-    </h1>
+<x-app-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -77,4 +70,4 @@
 
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-app-layout>
