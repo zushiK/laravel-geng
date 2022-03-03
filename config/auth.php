@@ -71,7 +71,7 @@ return [
 
     'providers' => [
         'customers' => [
-            'driver' => 'eccube',
+            'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
         ],
         'eccube_customers' => [

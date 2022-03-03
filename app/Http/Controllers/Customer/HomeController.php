@@ -21,4 +21,9 @@ class HomeController extends Controller
     {
         return view('customer.index');
     }
+
+    public function migrate()
+    {
+        return view('customer.index');
+    }
 }

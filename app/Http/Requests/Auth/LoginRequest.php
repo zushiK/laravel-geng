@@ -58,32 +58,17 @@ class LoginRequest extends FormRequest
         } else {
             $guard = 'customer';
             if (! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-                RateLimiter::hit($this->throttleKey());
-
-                // if ($this->authenticateWithEccubeAuth()) {
-                //     // redirect()->route();
-                // } else {
-                //     throw ValidationException::withMessages([
-                //         'email' => trans('auth.failed'),
-                //     ]);
-                // }
+                // Laravel認証が失敗したらECcube認証をかける
+                if (! Auth::guard('eccube_customer')->attempt($this->only('email', 'password'))) {
+                    RateLimiter::hit($this->throttleKey());
+                    throw ValidationException::withMessages([
+                        'email' => trans('auth.failed'),
+                    ]);
+                }
             }
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
+            
+            RateLimiter::clear($this->throttleKey());
         }
-
-        RateLimiter::clear($this->throttleKey());
-    }
-
-    /**
-     * ECcube認証
-     *
-     * @return boolean
-     */
-    public function authenticateWithEccubeAuth():bool
-    {
-        return true;
     }
 
     /**

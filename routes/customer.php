@@ -13,11 +13,13 @@ use App\Http\Controllers\Customer\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::get('/products', function () {
     return view('customer.product.list');
 });
 
+Route::middleware('auth:eccube_customer')->group(function () {
+    Route::get('/migrate', [HomeController::class, 'migrate'])->name('migrate');
+});
 Route::middleware('auth:customer')->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
 });

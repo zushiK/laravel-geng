@@ -37,6 +37,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // ECCUBE認証で通った場合移行ページにリダイレクトさせる
+        if (Auth::guard('eccube_customer')->check()) {
+            return redirect(RouteServiceProvider::ECCUBE_MIGRATE);
+        }
+
         return redirect()->intended(RouteServiceProvider::CUSTOMER_HOME);
     }
 

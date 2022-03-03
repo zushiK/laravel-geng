@@ -21,6 +21,8 @@ class RouteServiceProvider extends ServiceProvider
 
     public const OPERATOR_HOME = '/operator';
 
+    public const ECCUBE_MIGRATE = '/migrate';
+
     /**
      * Define your route model bindings, pattern filters, etc.
      *
