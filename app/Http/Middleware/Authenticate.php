@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 class Authenticate extends Middleware
 {
-    protected string $customer_route  = 'customer.login';
+    protected string $customer_route = 'customer.login';
 
     protected string $operator_route = 'operator.login';
 
