@@ -61,7 +61,7 @@ class MigrateFromEccubeController extends Controller
      */
     public function logout(Request $request)
     {
-        Auth::logout('eccube_customer');
+        Auth::guard('eccube_customer')->logout();
 
         $request->session()->invalidate();
 
