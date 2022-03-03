@@ -7,13 +7,19 @@
         @auth('customer')
             <form method="POST" action="{{ route('customer.logout') }}">
                 @csrf
-                <x-responsive-nav-link :href="route('customer.logout')" onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
+                <x-responsive-nav-link :href="route('customer.logout')"
+                    onclick="event.preventDefault();
+                                                                                                                this.closest('form').submit();">
                     ログアウトする
                 </x-responsive-nav-link>
             </form>
         @else
-            <a class="text-4xl text-fuchsia-800" href="{{ route('customer.login') }}">ログインする</a>
+            <x-button>
+                <a class="text-xl text-fuchsia-800" href="{{ route('customer.login') }}">ログインする</a>
+            </x-button>
+            <x-button>
+                <a class="text-xl text-white" href="{{ route('customer.register') }}">新規登録</a>
+            </x-button>
         @endauth
     </div>
 </header>

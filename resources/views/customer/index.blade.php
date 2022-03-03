@@ -6,3 +6,13 @@
     </div>
     <top-page></top-page>
 </x-app-layout>
+
+@auth('operator')
+    dd(auth()->user())
+@endauth
+@auth('customer')
+    dd(auth()->user())
+@endauth
+@auth('eccube_customer')
+    dd(auth()->user())
+@endauth

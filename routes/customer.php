@@ -4,6 +4,7 @@ use App\Http\Controllers\Customer\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Customer\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Customer\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Customer\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Customer\Auth\MigrateFromEccubeController;
 use App\Http\Controllers\Customer\Auth\NewPasswordController;
 use App\Http\Controllers\Customer\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Customer\Auth\RegisteredUserController;
@@ -12,13 +13,16 @@ use App\Http\Controllers\Customer\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/products', function () {
-    return view('customer.product.list');
+// ECCUBEからの移行
+Route::middleware('auth:eccube_customer')->group(function () {
+    Route::get('/migrate', [MigrateFromEccubeController::class, 'create']);
+    Route::post('/migrate', [MigrateFromEccubeController::class, 'store'])->name('migrate');
 });
 
-Route::middleware('auth:eccube_customer')->group(function () {
-    Route::get('/migrate', [HomeController::class, 'migrate'])->name('migrate');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/products', function () {
+    return view('customer.product.list');
 });
 Route::middleware('auth:customer')->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');

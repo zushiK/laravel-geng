@@ -1,4 +1,6 @@
 <x-guest-layout>
+    <div>登録は未実装</div>
+    <div>項目がたくさんある</div>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -22,7 +24,7 @@
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="login_id" :value="__('Email')" />
+                <x-label for="login_id" :value="__('メールアドレス')" />
 
                 <x-input id="login_id" class="block mt-1 w-full" type="text" name="login_id" :value="old('login_id')"
                     required />
@@ -30,7 +32,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('パスワード')" />
 
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
                     autocomplete="new-password" />
@@ -38,19 +40,19 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('パスワード（確認）')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
                     name="password_confirmation" required />
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('operator.login') }}">
-                    {{ __('Already registered?') }}
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('customer.login') }}">
+                    すでにアカウントをお持ちの方
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    登録する
                 </x-button>
             </div>
         </form>

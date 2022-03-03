@@ -14,6 +14,7 @@ class EccubeHasher implements HasherContract
      */
     public function info($hashedValue)
     {
+        throw new \BadMethodCallException('Unexpected method call');
     }
 
     /**
@@ -51,5 +52,6 @@ class EccubeHasher implements HasherContract
      */
     public function needsRehash($hashedValue, array $options = [])
     {
+        throw new \BadMethodCallException('Unexpected method call');
     }
 }
