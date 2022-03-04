@@ -36,7 +36,7 @@ class MigrateFromEccubeController extends Controller
     {
         $request->validate([
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'accepted' => ['required', 'accepted'],
+            'accepted' => ['accepted'],
         ]);
 
         $user = $request->user();
