@@ -10,7 +10,8 @@ use App\Http\Controllers\Customer\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Customer\Auth\RegisteredUserController;
 use App\Http\Controllers\Customer\Auth\VerifyEmailController;
 use App\Http\Controllers\Customer\HomeController;
-
+use App\Mail\OrderShipped;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 // ECCUBEからの移行
@@ -21,8 +22,9 @@ Route::middleware('auth:eccube_customer')->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/products', function () {
-    return view('customer.product.list');
+Route::get('/mail', function () {
+    Mail::to('ydasfdafasg@sai.co.jp')->send(new OrderShipped);
+    return view('mail.test');
 });
 Route::middleware('auth:customer')->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
