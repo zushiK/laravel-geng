@@ -16,6 +16,9 @@ class EccubeUserProvider extends EloquentUserProvider
      */
     public function validateCredentials(UserContract $user, array $credentials)
     {
+        if ($user->new_password) {
+            return false;
+        }
         $plain = $credentials['password'];
         $options['salt'] = $user->salt;
         // $user->passwordは古いパスワード

@@ -27,4 +27,14 @@ class Customer extends BaseAuthModel
         'create_date',
         'update_date'
     ];
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->new_password;
+    }
 }
