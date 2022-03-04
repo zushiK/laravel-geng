@@ -1,14 +1,13 @@
 <?php
+namespace App\Traits;
 
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class BaseModel extends Model
+trait BaseModelTrait
 {
     const CREATED_AT = 'create_date';
 
     const UPDATED_AT = 'update_date';
+
+    const DELETED_AT = 'del_flg';
 
     public function getIdAttribute():int
     {

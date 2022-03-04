@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Base\BaseAuthModel;
 
-class Customer extends Authenticatable
+class Customer extends BaseAuthModel
 {
     //テーブル名指定
     protected $table = 'dtb_customer';
@@ -15,7 +15,7 @@ class Customer extends Authenticatable
     //既存のテーブルはカラムが多いので基本的には$fillableではなく$gaurdedで指定する
     protected $guarded = ['customer_id'];
     
-    protected $hidden = ['password'];
+    protected $hidden = ['password','new_password'];
     
     protected $casts = [
         'is_active' => 'boolean',
@@ -27,27 +27,4 @@ class Customer extends Authenticatable
         'create_date',
         'update_date'
     ];
-
-    /**
-     * Get the password for the user.
-     *
-     * @return string
-     */
-    public function getAuthPassword()
-    {
-        return $this->new_password;
-    }
-      
-    /**
-     * BaseModelと共通の記述
-     */
-    const CREATED_AT = 'create_date';
-    
-    const UPDATED_AT = 'update_date';
-
-    public function getIdAttribute()
-    {
-        return $this[$this->primaryKey];
-    }
-    /** */
 }

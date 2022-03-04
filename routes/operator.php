@@ -9,6 +9,7 @@ use App\Http\Controllers\Operator\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Operator\Auth\RegisteredUserController;
 use App\Http\Controllers\Operator\Auth\VerifyEmailController;
 use App\Http\Controllers\Operator\HomeController;
+use App\Models\Operator;
 use Illuminate\Support\Facades\Route;
 
 // ログイン処理
@@ -20,10 +21,10 @@ Route::middleware('auth:operator')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
-// Route::get('register', [RegisteredUserController::class, 'create'])
-// ->name('register');
+Route::get('register', [RegisteredUserController::class, 'create'])
+->name('register');
 
-// Route::post('register', [RegisteredUserController::class, 'store']);
+Route::post('register', [RegisteredUserController::class, 'store']);
 
 
 // Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])

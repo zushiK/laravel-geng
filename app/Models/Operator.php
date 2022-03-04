@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Base\BaseAuthModel;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Operator extends Authenticatable
+class Operator extends BaseAuthModel
 {
     //テーブル名指定
     protected $table = 'dtb_operators';
@@ -27,17 +28,4 @@ class Operator extends Authenticatable
         'create_date',
         'update_date'
     ];
-      
-    /**
-     * BaseModelと共通の記述
-     */
-    const CREATED_AT = 'create_date';
-    
-    const UPDATED_AT = 'update_date';
-
-    public function getIdAttribute()
-    {
-        return $this[$this->primaryKey];
-    }
-    /** */
 }
