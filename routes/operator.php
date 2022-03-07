@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Customer\ShikakuController;
 use App\Http\Controllers\Operator\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Operator\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Operator\Auth\EmailVerificationNotificationController;
@@ -13,13 +14,25 @@ use App\Models\Operator;
 use Illuminate\Support\Facades\Route;
 
 // ログイン処理
-Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
-Route::post('login', [AuthenticatedSessionController::class, 'store']);
+Route::controller(AuthenticatedSessionController::class)->group(
+    function () {
+        Route::get('login', 'create')->name('login');
+        Route::post('login', 'store');
+    }
+);
 
 
 Route::middleware('auth:operator')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+    Route::controller(ShikakuController::class)->prefix('shikaku')->group(
+        function () {
+            Route::get('/', 'index')->name('shikaku');
+            Route::post('/create', 'store')->name('shikaku.create');
+            Route::delete('/delete/{id}', 'destroy')->name('shikaku.delete');
+        }
+    );
 });
 Route::get('register', [RegisteredUserController::class, 'create'])
 ->name('register');
