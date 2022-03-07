@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Base\BaseModel;
+use App\Enums\ShikakuStruct;
 
 class Shikaku extends BaseModel
 {
@@ -16,6 +17,7 @@ class Shikaku extends BaseModel
     protected $guarded = ['id'];
         
     protected $casts = [
+        'struct' => ShikakuStruct::class,
     ];
     
     //自動的にCarbonインスタンスへキャスト

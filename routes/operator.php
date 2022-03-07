@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Customer\ShikakuController;
+use App\Http\Controllers\Operator\ShikakuController;
 use App\Http\Controllers\Operator\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Operator\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Operator\Auth\EmailVerificationNotificationController;
@@ -30,6 +30,7 @@ Route::middleware('auth:operator')->group(function () {
         function () {
             Route::get('/', 'index')->name('shikaku');
             Route::post('/create', 'store')->name('shikaku.create');
+            Route::post('/update', 'update')->name('shikaku.update');
             Route::delete('/delete/{id}', 'destroy')->name('shikaku.delete');
         }
     );

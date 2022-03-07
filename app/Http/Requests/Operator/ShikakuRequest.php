@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Operator;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Enums\ShikakuStruct;
+use Illuminate\Validation\Rules\Enum;
 
 class ShikakuRequest extends FormRequest
 {
@@ -24,11 +26,22 @@ class ShikakuRequest extends FormRequest
     public function rules()
     {
         return [
+            'code' => 'required|max:255',
             'name' => 'required|max:255',
             'name_short' => 'required|max:255',
             'rate' => 'required|integer',
-            'code' => 'required|max:255',
-            'struct' => 'required|integer', //Enum使う
+            'struct' => ['required',new Enum(ShikakuStruct::class)], //Enum使う
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => '資格名',
+            'name_short' => '資格名（短縮）',
+            'rate' => '割合',
+            'code' => '資格コード',
+            'struct' => '資格階層',
         ];
     }
 }
