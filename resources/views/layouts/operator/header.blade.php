@@ -39,40 +39,85 @@
             <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white z-20"
                 id="nav-content">
                 <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600">
-                            <span class="pb-1 md:pb-0 text-sm">Home</span>
+                    <li class="mr-6 my-2 md:my-0 relative group">
+                        <a href="" onclick="event.preventDefault();"
+                            class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline group-hover:text-gray-900 border-b-2 border-white group-hover:border-orange-600">
+                            <div class="flex">
+                                <span class="px-8 pb-1 md:pb-0">基本情報管理</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
                         </a>
+                        <div
+                            class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
+                            <a href="{{ route('operator.shikaku') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                資格管理
+                            </a>
+                            <a href="{{ route('operator.shikaku') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                資格管理
+                            </a>
+                        </div>
+                    </li>
+                    <li class="mr-6 my-2 md:my-0 relative group">
+                        <a href="" onclick="event.preventDefault();"
+                            class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline group-hover:text-gray-900 border-b-2 border-white group-hover:border-orange-600">
+                            <div class="flex">
+                                <span class="px-8 pb-1 md:pb-0">商品管理</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </a>
+                        <div
+                            class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
+                            <a href="{{ route('operator.shikaku') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                資格管理
+                            </a>
+                            <a href="{{ route('operator.shikaku') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                資格管理
+                            </a>
+                        </div>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
                         <a href="#"
                             class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-pink-500">
-                            <span class="pb-1 md:pb-0 text-sm">Tasks</span>
+                            <span class="pb-1 px-8 md:pb-0 text-sm">商品管理</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
                         <a href="#"
                             class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-purple-500">
-                            <span class="pb-1 md:pb-0 text-sm">Messages</span>
+                            <span class="pb-1 md:pb-0 text-sm">会員管理</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
                         <a href="#"
                             class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-green-500">
-                            <span class="pb-1 md:pb-0 text-sm">Analytics</span>
+                            <span class="pb-1 md:pb-0 text-sm">受注管理</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
                         <a href="#"
                             class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-red-500">
-                            <span class="pb-1 md:pb-0 text-sm">Payments</span>
+                            <span class="pb-1 md:pb-0 text-sm">コンテンツ管理</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <div role="none" class=" mt-32"></div>
     <div class="container mx-auto">
         @if (session('message'))
