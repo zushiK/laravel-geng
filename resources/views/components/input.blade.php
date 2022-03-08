@@ -1,7 +1,12 @@
-@props(['disabled' => false, 'name' => ''])
+@props(['disabled' => false, 'name', 'type' => 'text'])
 
-<input {{ $disabled ? 'disabled' : '' }}
-    {{ $attributes->merge([
-        'class' => 'rounded-md shadow-sm border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
-    ]) }}
-    name="{{ $name }}">
+
+<label for="{{ $name }}" class="block text-sm font-medium text-gray-700">
+    {{ $slot }} </label>
+<div class="mt-1 flex rounded-md shadow-sm">
+    <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
+        {{ $disabled ? 'disabled' : '' }}
+        {{ $attributes->merge([
+            'class' => 'focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded sm:text-sm border-gray-300',
+        ]) }}>
+</div>

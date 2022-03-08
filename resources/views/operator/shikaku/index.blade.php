@@ -1,93 +1,88 @@
 <x-app-layout>
 
-    <div class="container mx-auto flex justify-center flex-col">
-        @if (session('message'))
-            <x-success-msg>
-                {{ session('message') }}
-            </x-success-msg>
-        @endif
-        @if (count($errors) > 0)
-            <x-error-msg type="error">
-                {{ $errors->first() }}
-            </x-error-msg>
-        @endif
-        <form action="{{ route('operator.shikaku.create') }}" method="post">
-            @csrf
-            <div class="border border-gray-200">
-                <div class=" flex justify-between px-10 py-8 ">
-                    <div>
-                        <x-label for="code" value="資格コード" />
-                        <x-input name="code" value="{{ old('code') }}"></x-input>
-                    </div>
-                    <div>
-                        <x-label for="name" value="資格名" />
-                        <x-input name="name" value="{{ old('name') }}"></x-input>
-                    </div>
-                    <div>
-                        <x-label for=" name_short" value="資格名（短縮）" />
-                        <x-input name="name_short" value="{{ old('name_short') }}"></x-input>
-                    </div>
-                    <div>
-                        <x-label for="rate" value="比率" />
-                        <x-input name="rate" placeholder="半角数字" value="{{ old('rate') }}"></x-input>
-                    </div>
-                    <div>
-                        <x-label for="struct" value="資格" />
-                        <x-input-dropdown name="struct" :options="$shikaku_struct_list" value="{{ old('struct') }}">
-                        </x-input-dropdown>
-                    </div>
-                </div>
-                <div class="text-right mx-10 mb-8">
-                    <input
-                        class=" py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                        type="submit" value="登録">
+    <div class="container mx-auto flex flex-col">
+        <div class="flex m-4 justify-between">
+            <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
+                資格一覧
+            </div>
+            <div class="text-right">
+                <a href="{{ route('operator.shikaku.create') }}"
+                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    新規追加
+                </a>
+            </div>
+        </div>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    資格コード</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    資格名</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    資格名（短縮）</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    比率</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    資格</th>
+
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    操作</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($shikaku_list as $shikaku)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900"> {{ $shikaku->code }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900"> {{ $shikaku->name }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900"> {{ $shikaku->name_short }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900"> {{ $shikaku->rate }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900"> {{ $shikaku->struct->label() }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="inline-flex flex-col">
+                                            <a href="{{ route('operator.shikaku.edit', $shikaku->id) }}"
+                                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                                編集</a>
+                                            <div class="mt-2">
+                                                <form action="{{ route('operator.shikaku.delete', $shikaku->id) }}"
+                                                    method="POST">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <a href="{{ route('operator.shikaku.delete', $shikaku->id) }}"
+                                                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                                                        onclick="event.preventDefault();this.closest('form').submit();">削除</a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </form>
-        <table class="table-auto mt-8">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2">資格コード</th>
-                    <th class="px-4 py-2">資格名</th>
-                    <th class="px-4 py-2">資格名（短縮）</th>
-                    <th class="px-4 py-2">比率</th>
-                    <th class="px-4 py-2">資格</th>
-                    <th class="px-4 py-2">操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($shikaku_list as $shikaku)
-                    <tr>
-                        <td class="border px-4 py-2">
-                            <x-input class="w-full" name="code" :value="$shikaku->code"></x-input>
-                        </td>
-                        <td class="border px-4 py-2">
-                            <x-input class="w-full" name="name" :value="$shikaku->name"></x-input>
-                        </td>
-                        <td class="border px-4 py-2">
-                            <x-input class="w-full" name="name" :value="$shikaku->name_short"></x-input>
-                        </td>
-                        <td class="border px-4 py-2">
-                            <x-input class="w-full" name="name" :value="$shikaku->rate"></x-input>
-                        </td>
-                        <td class="border px-4 py-2">
-                            <x-input-dropdown name="struct" :options="$shikaku_struct_list"
-                                value="{{ old('struct') }}"></x-input-dropdown>
-                        </td>
-                        <td class="border px-4 py-2">
-                            <form action="{{ route('operator.shikaku.delete', $shikaku->id) }}" method="POST">
-                                {{-- @csrf --}}
-                                @method('delete')
-                                @csrf
-                                <a href="{{ route('operator.shikaku.delete', $shikaku->id) }}"
-                                    onclick="event.preventDefault();this.closest('form').submit();">削除</a>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+        </div>
     </div>
-
 
 </x-app-layout>

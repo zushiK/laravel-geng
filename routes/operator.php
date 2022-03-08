@@ -28,10 +28,12 @@ Route::middleware('auth:operator')->group(function () {
 
     Route::controller(ShikakuController::class)->prefix('shikaku')->group(
         function () {
-            Route::get('/', 'index')->name('shikaku');
-            Route::post('/create', 'store')->name('shikaku.create');
-            Route::post('/update', 'update')->name('shikaku.update');
-            Route::delete('/delete/{id}', 'destroy')->name('shikaku.delete');
+            Route::get('/', 'index')->name('shikaku'); //一覧画面
+            Route::get('/create', 'create')->name('shikaku.create'); //新規作成画面
+            Route::post('/store', 'store')->name('shikaku.store'); //新規作成実行
+            Route::get('/edit/{id}', 'edit')->name('shikaku.edit'); //編集画面
+            Route::post('/update/{id}', 'update')->name('shikaku.update'); //編集実行
+            Route::delete('/delete/{id}', 'destroy')->name('shikaku.delete'); //削除実行
         }
     );
 });
