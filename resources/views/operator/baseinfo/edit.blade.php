@@ -3,39 +3,36 @@
     <div class="container mx-auto flex flex-col">
         <div class="flex m-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
-                資格編集
+                基本情報管理
             </div>
         </div>
 
-        <form action="{{ route('operator.shikaku.update', $shikaku->id) }}" method="POST">
+        <form action="{{ route('operator.baseinfo.update') }}" method="POST">
             @csrf
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-3">
-                            <x-input name="code" value="{{ old('code', $shikaku->code) }}">資格コード</x-input>
-                            <x-input-error> {{ $errors->first('code') }}</x-input-error>
-                        </div>
-                        {{-- <div class=""></div> --}}
-                        <div class="col-span-3">
-                            <x-input name="name" value="{{ old('name', $shikaku->name) }}">資格名</x-input>
-                            <x-input-error>{{ $errors->first('name') }}</x-input-error>
+                            <x-input name="company_name" value="{{ old('company_name', $baseinfo->company_name) }}">
+                                会社名</x-input>
+                            <x-input-error> {{ $errors->first('company_name') }}</x-input-error>
                         </div>
                         <div class="col-span-3">
-                            <x-input name="name_short" value="{{ old('name_short', $shikaku->name_short) }}">資格名（短縮）
+                            <x-input name="company_kana" value="{{ old('company_kana', $baseinfo->company_kana) }}">
+                                会社名(フリガナ)</x-input>
+                            <x-input-error>{{ $errors->first('company_kana') }}</x-input-error>
+                        </div>
+                        <div class="col-span-3">
+                            <x-input name="shop_name" value="{{ old('shop_name', $baseinfo->shop_name) }}">店名
                             </x-input>
-                            <x-input-error>{{ $errors->first('name_short') }}</x-input-error>
+                            <x-input-error>{{ $errors->first('shop_name') }}</x-input-error>
                         </div>
                         <div class="col-span-3">
-                            <x-input name="rate" value="{{ old('rate', $shikaku->rate) }}">割合</x-input>
-                            <x-input-error>{{ $errors->first('rate') }}</x-input-error>
+                            <x-input name="shop_kana" value="{{ old('shop_kana', $baseinfo->shop_kana) }}">店名(フリガナ)
+                            </x-input>
+                            <x-input-error>{{ $errors->first('shop_kana') }}</x-input-error>
                         </div>
-                        <div class="col-span-3">
-                            <x-input-dropdown name="struct" value="{{ old('struct', $shikaku->struct->value) }}"
-                                :options="$shikaku_struct_list">資格階層
-                            </x-input-dropdown>
-                            <x-input-error>{{ $errors->first('struct') }}</x-input-error>
-                        </div>
+
                     </div>
                     {{-- <div>
                       <label class="block text-sm font-medium text-gray-700"> Cover photo </label>
@@ -63,7 +60,7 @@
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">完了</button>
+                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">変更</button>
                 </div>
             </div>
         </form>

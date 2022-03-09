@@ -59,11 +59,11 @@
                                         <div class="text-sm text-gray-900"> {{ $shikaku->struct->label() }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="inline-flex flex-col">
+                                        <div class="inline-flex ">
                                             <a href="{{ route('operator.shikaku.edit', $shikaku->id) }}"
                                                 class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                                                 編集</a>
-                                            <div class="mt-2">
+                                            <div class="ml-2">
                                                 <form action="{{ route('operator.shikaku.delete', $shikaku->id) }}"
                                                     method="POST">
                                                     @method('delete')

@@ -153,4 +153,5 @@ return [
 
     ],
 
+    'info_column_id' => env('INFO_COLUMN_ID'),
 ];

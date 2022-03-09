@@ -12,6 +12,7 @@ class BaseModel extends Model
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
+        
     
         // primaryKeyを各モデルで設定して$this->idで取得できるように
         $this->id = $this->setId();

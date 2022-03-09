@@ -12,6 +12,7 @@ use App\Http\Controllers\Operator\Auth\VerifyEmailController;
 use App\Http\Controllers\Operator\HomeController;
 use App\Models\Operator;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Operator\BaseinfoController;
 
 // ログイン処理
 Route::controller(AuthenticatedSessionController::class)->group(
@@ -34,6 +35,13 @@ Route::middleware('auth:operator')->group(function () {
             Route::get('/edit/{id}', 'edit')->name('shikaku.edit'); //編集画面
             Route::post('/update/{id}', 'update')->name('shikaku.update'); //編集実行
             Route::delete('/delete/{id}', 'destroy')->name('shikaku.delete'); //削除実行
+        }
+    );
+    Route::controller(BaseinfoController::class)->prefix('baseinfo')->group(
+        function () {
+            Route::get('/', 'edit')->name('baseinfo');
+            Route::post('/update', 'update')->name('baseinfo.update'); //編集実行
+            Route::delete('/delete/{id}', 'destroy')->name('baseinfo.delete'); //削除実行
         }
     );
 });

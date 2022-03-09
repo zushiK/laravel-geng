@@ -48,7 +48,7 @@ class ShikakuController extends Controller
             'code' => $request->code,
             'struct' => $request->struct,
         ]);
-        return redirect()->route('operator.shikaku')->with('message', '・資格を追加しました');
+        return redirect()->route('operator.shikaku')->with('message', '資格を追加しました');
     }
 
     /**
@@ -93,7 +93,7 @@ class ShikakuController extends Controller
                 'struct' => $request->struct,
             ]
         );
-        return redirect()->route('operator.shikaku')->with('message', '・資格を編集しました。');
+        return redirect()->route('operator.shikaku')->with('message', '資格を編集しました。');
     }
 
     /**
@@ -105,6 +105,6 @@ class ShikakuController extends Controller
     public function destroy(int $id):RedirectResponse
     {
         Shikaku::find($id)->delete();
-        return redirect()->route('operator.shikaku')->with('message', '・資格を削除しました。');
+        return redirect()->route('operator.shikaku')->with('message', '資格を削除しました。');
     }
 }
