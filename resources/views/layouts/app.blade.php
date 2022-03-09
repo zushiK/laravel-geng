@@ -21,17 +21,17 @@
 @if (Request::routeIs('operator.*'))
     {{-- 管理画面 --}}
 
-    <body class="bg-pink-50 bg-opacity-50">
+    <body class="bg-pink-50 bg-opacity-50 ">
         <div id="app">
             <!-- Page Header -->
             @include('layouts.operator.header')
 
-            <div class="flex">
+            <div class="flex px-8">
                 <!-- Page Sidebar -->
                 @include('layouts.operator.sidebar')
 
                 <!-- Page Content -->
-                <main class="flex-auto">
+                <main class="w-4/5 mx-auto">
                     {{ $slot }}
                 </main>
             </div>

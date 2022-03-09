@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="container mx-auto flex flex-col w-4/5">
+    <div class="container mx-auto flex flex-col">
         <div class="flex mx-4 mb-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
                 資格一覧
@@ -16,7 +16,7 @@
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                        <thead class="bg-pink-50">
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
