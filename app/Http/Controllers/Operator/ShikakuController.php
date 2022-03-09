@@ -8,9 +8,20 @@ use App\Http\Requests\Operator\ShikakuRequest;
 use App\Models\Shikaku;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Services\ShikakuService;
 
 class ShikakuController extends Controller
 {
+    /**
+     * @var ShikakuService
+     */
+    private $shikaku_service;
+
+    public function __construct(ShikakuService $shikaku_service)
+    {
+        $this->shikaku_service = $shikaku_service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +29,7 @@ class ShikakuController extends Controller
      */
     public function index():View
     {
-        $shikaku_list = Shikaku::all();
+        $shikaku_list = $this->shikaku_service->getAll();
         return view('operator.shikaku.index', compact('shikaku_list'));
     }
     
@@ -41,13 +52,14 @@ class ShikakuController extends Controller
      */
     public function store(ShikakuRequest $request):RedirectResponse
     {
-        Shikaku::create([
+        $data = [
             'name' => $request->name,
             'name_short' => $request->name_short,
             'rate' => $request->rate,
             'code' => $request->code,
             'struct' => $request->struct,
-        ]);
+        ];
+        $this->shikaku_service->create($data);
         return redirect()->route('operator.shikaku')->with('message', '資格を追加しました');
     }
 
@@ -70,7 +82,7 @@ class ShikakuController extends Controller
      */
     public function edit(int $id):View
     {
-        $shikaku = Shikaku::find($id);
+        $shikaku = $this->shikaku_service->findById($id);
         $shikaku_struct_list = ShikakuStruct::cases();
         return view('operator.shikaku.edit', compact('shikaku', 'shikaku_struct_list'));
     }
@@ -84,15 +96,15 @@ class ShikakuController extends Controller
      */
     public function update(ShikakuRequest $request, int $id):RedirectResponse
     {
-        Shikaku::find($id)->update(
-            [
-                'name' => $request->name,
-                'name_short' => $request->name_short,
-                'rate' => $request->rate,
-                'code' => $request->code,
-                'struct' => $request->struct,
-            ]
-        );
+        $data = [
+            'name' => $request->name,
+            'name_short' => $request->name_short,
+            'rate' => $request->rate,
+            'code' => $request->code,
+            'struct' => $request->struct,
+        ];
+
+        $this->shikaku_service->update($id, $data);
         return redirect()->route('operator.shikaku')->with('message', '資格を編集しました。');
     }
 
