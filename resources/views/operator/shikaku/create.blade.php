@@ -5,41 +5,30 @@
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
                 新規資格
             </div>
-            {{-- <div class="text-right">
-                <a href="{{ route('operator.shikaku.create') }}"
-                    class="px-4 py-2 font-semibold text-sm bg-blue-500 text-white rounded-full shadow-sm inline-block">
-                    新規作成
-                </a>
-            </div> --}}
         </div>
-
-
-        @php
-            // dd($errors);
-        @endphp
         <form action="{{ route('operator.shikaku.store') }}" method="POST">
             @csrf
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <x-input name="code">資格コード</x-input>
                             <x-input-error> {{ $errors->first('code') }}</x-input-error>
                         </div>
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <x-input name="name">資格名</x-input>
                             <x-input-error>{{ $errors->first('name') }}</x-input-error>
                         </div>
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <x-input name="name_short">資格名（短縮）
                             </x-input>
                             <x-input-error>{{ $errors->first('name_short') }}</x-input-error>
                         </div>
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <x-input name="rate">割合</x-input>
                             <x-input-error>{{ $errors->first('rate') }}</x-input-error>
                         </div>
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <x-input-dropdown name="struct" value="{{ old('struct') }}"
                                 :options="$shikaku_struct_list">資格階層
                             </x-input-dropdown>
@@ -73,8 +62,7 @@
                     </div> --}}
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">追加する</button>
+                    <x-button-submit>追加する</x-button-submit>
                 </div>
             </div>
         </form>

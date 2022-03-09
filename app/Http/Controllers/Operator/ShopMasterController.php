@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Operator;
 
-use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Operator\ShopMasterRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Baseinfo;
 
-class BaseinfoController extends Controller
+class ShopMasterController extends Controller
 {
     /**
      * Show the form for editing the specified resource.
@@ -19,17 +19,17 @@ class BaseinfoController extends Controller
     public function edit():View
     {
         $baseinfo = BaseInfo::find(config('database.info_column_id'));
-        return view('operator.baseinfo.edit', compact('baseinfo'));
+        return view('operator.shop-master.edit', compact('baseinfo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
+     * @param  ShopMasterRequest $request
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function update(Request $request):RedirectResponse
+    public function update(ShopMasterRequest $request):RedirectResponse
     {
         BaseInfo::find(config('database.info_column_id'))->update(
             [
@@ -101,18 +101,6 @@ class BaseinfoController extends Controller
                 // 'downloadable_days_unlimited' => 'downloadable_days_unlimited',
             ],
         );
-        return redirect()->route('operator.shikaku')->with('message', '・資格を編集しました。');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return RedirectResponse
-     */
-    public function destroy(int $id):RedirectResponse
-    {
-        BaseInfo::find($id)->delete();
-        return redirect()->route('operator.shikaku')->with('message', '・資格を削除しました。');
+        return redirect()->route('operator.shikaku')->with('message', 'SHOPマスタを編集しました。');
     }
 }

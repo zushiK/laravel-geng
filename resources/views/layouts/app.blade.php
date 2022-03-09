@@ -32,6 +32,20 @@
 
                 <!-- Page Content -->
                 <main class="w-4/5 mx-auto">
+                    <div class="container mx-auto">
+                        @if (session('message'))
+                            <x-flash-msg>{{ session('message') }}</x-flash-msg>
+                        @endif
+                        @if (count($errors) > 0)
+                            <x-flash-msg type="error">
+                                @foreach ($errors->all() as $error)
+                                    <p>
+                                        {{ $error }}
+                                    </p>
+                                @endforeach
+                            </x-flash-msg>
+                        @endif
+                    </div>
                     {{ $slot }}
                 </main>
             </div>

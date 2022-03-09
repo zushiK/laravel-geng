@@ -58,7 +58,7 @@
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
                                 資格管理
                             </a>
-                            <a href="{{ route('operator.baseinfo') }}"
+                            <a href="{{ route('operator.shop-master') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
                                 基本情報
                             </a>
@@ -159,21 +159,5 @@
     </nav>
 
     <div role="none" class="mt-32"></div>
-    <div class="container mx-auto">
-        @if (session('message'))
-            <x-flash-msg>{{ session('message') }}</x-flash-msg>
-        @endif
-        @if (count($errors) > 0)
-            <x-flash-msg type="error">
-                @foreach ($errors->all() as $error)
-                    <p>
-                        {{ $error }}
-                    </p>
-                @endforeach
-            </x-flash-msg>
-        @endif
-    </div>
-    {{-- @php
-        
-    @endphp --}}
+
 </header>

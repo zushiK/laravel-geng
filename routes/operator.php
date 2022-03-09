@@ -10,9 +10,9 @@ use App\Http\Controllers\Operator\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Operator\Auth\RegisteredUserController;
 use App\Http\Controllers\Operator\Auth\VerifyEmailController;
 use App\Http\Controllers\Operator\HomeController;
+use App\Http\Controllers\Operator\ShopMasterController;
 use App\Models\Operator;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Operator\BaseinfoController;
 
 // ログイン処理
 Route::controller(AuthenticatedSessionController::class)->group(
@@ -37,11 +37,11 @@ Route::middleware('auth:operator')->group(function () {
             Route::delete('/delete/{id}', 'destroy')->name('shikaku.delete'); //削除実行
         }
     );
-    Route::controller(BaseinfoController::class)->prefix('baseinfo')->group(
+    Route::controller(ShopMasterController::class)->prefix('shop-master')->group(
         function () {
-            Route::get('/', 'edit')->name('baseinfo');
-            Route::post('/update', 'update')->name('baseinfo.update'); //編集実行
-            Route::delete('/delete/{id}', 'destroy')->name('baseinfo.delete'); //削除実行
+            Route::get('/', 'edit')->name('shop-master');
+            Route::post('/update', 'update')->name('shop-master.update'); //編集実行
+            Route::delete('/delete/{id}', 'destroy')->name('shop-master.delete'); //削除実行
         }
     );
 });
