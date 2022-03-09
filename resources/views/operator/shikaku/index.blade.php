@@ -1,7 +1,7 @@
 <x-app-layout>
 
-    <div class="container mx-auto flex flex-col">
-        <div class="flex m-4 justify-between">
+    <div class="container mx-auto flex flex-col w-4/5">
+        <div class="flex mx-4 mb-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
                 資格一覧
             </div>

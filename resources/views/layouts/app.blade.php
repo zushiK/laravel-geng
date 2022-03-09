@@ -18,28 +18,46 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
-<body>
-    <div id="app">
-        <!-- Page Header -->
-        @if (Request::routeIs('operator.*'))
+@if (Request::routeIs('operator.*'))
+    {{-- 管理画面 --}}
+
+    <body class="bg-pink-50 bg-opacity-50">
+        <div id="app">
+            <!-- Page Header -->
             @include('layouts.operator.header')
-        @else
-            @include('layouts.customer.header')
-        @endif
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            <div class="flex">
+                <!-- Page Sidebar -->
+                @include('layouts.operator.sidebar')
 
-        <!-- Page Header -->
-        @if (Request::routeIs('operator.*'))
+                <!-- Page Content -->
+                <main class="flex-auto">
+                    {{ $slot }}
+                </main>
+            </div>
+
+
+            <!-- Page Header -->
             @include('layouts.operator.footer')
-        @else
-            @include('layouts.customer.footer')
-        @endif
-    </div>
+        </div>
+    </body>
+@else
+    {{-- フロント --}}
 
-</body>
+    <body>
+        <div id="app">
+            <!-- Page Header -->
+            @include('layouts.customer.header')
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+
+            <!-- Page Header -->
+            @include('layouts.customer.footer')
+        </div>
+    </body>
+@endif
 
 </html>
