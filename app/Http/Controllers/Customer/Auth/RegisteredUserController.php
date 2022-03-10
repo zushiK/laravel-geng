@@ -35,27 +35,20 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'login_id' => ['required', 'string', 'max:255', 'unique:dtb_operators'],
+            'email' => ['required', 'string' ,     'email', 'max:255' , 'unique:dtb_customer'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = Customer::create([
             'name' => $request->name,
-            'login_id' => $request->login_id,
-            'password' => Hash::make($request->password),
-            'fld_code_list' => [1,2,3],
+            'email' => $request->email,
+            'password' => Hash::make($request->password)  ,
+            'fld_code_list' => [1, 2, 3],
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
-
-        return redirect(RouteServiceProvider::CUSTOMER_HOME);
-    }
-
-    public function test()
-    {
-        $a = Customer::find(1)->update(['password' => Hash::make(11111111)]);
 
         return redirect(RouteServiceProvider::CUSTOMER_HOME);
     }

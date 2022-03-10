@@ -14,9 +14,8 @@ enum ShikakuStruct: int
 
   public function label(): string
   {
-      return match($this)
-      {
-        ShikakuStruct::Default => '未選択',
+      return match ($this) {
+          ShikakuStruct::Default => '未選択',
         ShikakuStruct::MG => 'MG',
         ShikakuStruct::GL => 'GL',
         ShikakuStruct::CBC => 'CBC',
