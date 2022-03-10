@@ -28,7 +28,6 @@ class ZeiritsuRepository
 
     public function create(array $data):void
     {
-        // dump($data);die;
         $this->zeiritsu->create($data);
     }
 

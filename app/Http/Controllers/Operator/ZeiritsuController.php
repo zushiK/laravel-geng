@@ -82,7 +82,8 @@ class ZeiritsuController extends Controller
     {
         $data = [
             'tax_rate' => $request->tax_rate,
-            'apply_date' => Carbon::parse($request->apply_date),
+            'apply_date' => Carbon::createFromFormat('d/m/Y H:i:s', $request->apply_date),
+
         ];
         $this->zeiritsu_service->update($id, $data);
         return redirect()->route('operator.zeiritsu')->with('message', '税率を編集しました。');
