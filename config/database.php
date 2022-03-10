@@ -68,7 +68,8 @@ return [
                 'NO_ZERO_IN_DATE',
                 // 'NO_ZERO_DATE', 0000-00-00の初期値対応
                 'ERROR_FOR_DIVISION_BY_ZERO',
-                'NO_ENGINE_SUBSTITUTION'
+                'NO_ENGINE_SUBSTITUTION',
+                'NO_AUTO_VALUE_ON_ZERO'
             ]
         ],
 

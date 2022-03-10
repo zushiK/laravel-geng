@@ -12,20 +12,20 @@ class BaseModel extends Model
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
-        
-    
+
+
         // primaryKeyを各モデルで設定して$this->idで取得できるように
-        $this->id = $this->setId();
+        // $this->id = $this->setId();
     }
 
     const CREATED_AT = 'create_date';
-    
+
     const UPDATED_AT = 'update_date';
-    
+
     const DELETED_AT = 'del_flg';
 
-    private function setId()
-    {
-        return $this[$this->primaryKey];
-    }
+    // private function setId()
+    // {
+    //     return $this[$this->primaryKey];
+    // }
 }

@@ -23,6 +23,12 @@
                         資格管理
                     </a>
                 </li>
+                <li class=" hover:bg-pink-50">
+                    <a href="{{ route('operator.zeiritsu') }}"
+                        class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                        税率設定
+                    </a>
+                </li>
 
             </ul>
         </div>
