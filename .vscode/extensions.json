@@ -1,7 +1,3 @@
 {
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "junstyle.php-cs-fixer",
-    "bradlc.vscode-tailwindcss"
-  ]
+  "recommendations": ["esbenp.prettier-vscode", "junstyle.php-cs-fixer", "bradlc.vscode-tailwindcss"]
 }
