@@ -35,15 +35,19 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string' ,     'email', 'max:255' , 'unique:dtb_customer'],
+            'email' => ['required', 'string' , 'email', 'max:255' ,'unique:dtb_customer'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // とりあえず登録できるように
         $user = Customer::create([
-            'name' => $request->name,
+            'name01' => $request->name,
+            'name02' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)  ,
-            'fld_code_list' => [1, 2, 3],
+            'password' => '',
+            'new_password' => Hash::make($request->password),
+            'secret_key' => 0,
+            'nbc_basic_code' => 0,
         ]);
 
         event(new Registered($user));
