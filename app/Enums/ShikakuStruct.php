@@ -22,5 +22,7 @@ enum ShikakuStruct: int
         ShikakuStruct::CBC => 'CBC',
         ShikakuStruct::BC => 'BC',
         ShikakuStruct::Ippan => '一般',
-      }
+      };
+
+    }
 }
