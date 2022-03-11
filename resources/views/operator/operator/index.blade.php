@@ -18,7 +18,7 @@
                             {{ $operator->name }}
                         </x-operator.page-index.tcell>
                         <x-operator.page-index.tcell>
-                            {{ $operator->is_active }}
+                            {{ $operator->is_active->label() }}
                         </x-operator.page-index.tcell>
                         <x-operator.page-index.tcell>
                             {{ $operator->fld_code }}

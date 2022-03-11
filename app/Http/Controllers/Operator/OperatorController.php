@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Operator;
 
-use App\Enums\ShikakuStruct;
+use App\Enums\OperatorIsActive;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Operator\ShikakuRequest;
+use App\Http\Requests\Operator\OperatorRequest;
 use App\Models\Shikaku;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -40,17 +40,18 @@ class OperatorController extends Controller
      */
     public function create():View
     {
-        $shikaku_struct_list = ShikakuStruct::cases();
-        return view('operator.operator.create', compact('shikaku_struct_list'));
+        $operator_is_active_enum = OperatorIsActive::cases();
+
+        return view('operator.operator.create', compact('operator_is_active_enum'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param ShikakuRequest $request
+     * @param OperatorRequest $request
      * @return RedirectResponse
      */
-    public function store(ShikakuRequest $request):RedirectResponse
+    public function store(OperatorRequest $request):RedirectResponse
     {
         $data = [
             'name' => $request->name,
@@ -60,7 +61,7 @@ class OperatorController extends Controller
             'struct' => $request->struct,
         ];
         $this->operator_service->create($data);
-        return redirect()->route('operator.shikaku')->with('message', '資格を追加しました');
+        return redirect()->route('operator.operator')->with('message', '資格を追加しました');
     }
 
     /**
@@ -82,19 +83,19 @@ class OperatorController extends Controller
      */
     public function edit(int $id):View
     {
-        $shikaku = $this->operator_service->findById($id);
-        $shikaku_struct_list = ShikakuStruct::cases();
-        return view('operator.operator.edit', compact('shikaku', 'shikaku_struct_list'));
+        $operator = $this->operator_service->findById($id);
+        $operator_is_active_enum = OperatorIsActive::cases();
+        return view('operator.operator.edit', compact('operator', 'operator_is_active_enum'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  ShikakuRequest $request
+     * @param  OperatorRequest $request
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function update(ShikakuRequest $request, int $id):RedirectResponse
+    public function update(OperatorRequest $request, int $id):RedirectResponse
     {
         $data = [
             'name' => $request->name,
@@ -105,7 +106,7 @@ class OperatorController extends Controller
         ];
 
         $this->operator_service->update($id, $data);
-        return redirect()->route('operator.shikaku')->with('message', '資格を編集しました。');
+        return redirect()->route('operator.operator')->with('message', '資格を編集しました。');
     }
 
     /**
@@ -117,6 +118,6 @@ class OperatorController extends Controller
     public function destroy(int $id):RedirectResponse
     {
         Shikaku::find($id)->delete();
-        return redirect()->route('operator.shikaku')->with('message', '資格を削除しました。');
+        return redirect()->route('operator.operator')->with('message', '資格を削除しました。');
     }
 }
