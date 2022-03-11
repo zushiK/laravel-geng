@@ -28,4 +28,8 @@ class Operator extends BaseAuthModel
         'create_date',
         'update_date'
     ];
+
+    public function getIsActiveStrAttribute():string{
+        return $attrubutes
+    }
 }
