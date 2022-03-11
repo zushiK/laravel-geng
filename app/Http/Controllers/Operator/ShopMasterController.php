@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Operator;
 
+use App\Enums\Prefecture;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Operator\ShopMasterRequest;
 use Illuminate\Contracts\View\View;
@@ -18,8 +19,9 @@ class ShopMasterController extends Controller
      */
     public function edit():View
     {
+        $prefecture_list = Prefecture::cases();
         $baseinfo = BaseInfo::find(config('database.info_column_id'));
-        return view('operator.shop-master.edit', compact('baseinfo'));
+        return view('operator.shop-master.edit', compact('baseinfo', 'prefecture_list'));
     }
 
     /**
