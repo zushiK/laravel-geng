@@ -12,7 +12,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 use Auth;
-use Carbon\Carbon;
 
 class ZeiritsuController extends Controller
 {
@@ -82,7 +81,7 @@ class ZeiritsuController extends Controller
     {
         $data = [
             'tax_rate' => $request->tax_rate,
-            'apply_date' => Carbon::createFromFormat('d/m/Y H:i:s', $request->apply_date),
+            'apply_date' => $request->apply_date,
 
         ];
         $this->zeiritsu_service->update($id, $data);

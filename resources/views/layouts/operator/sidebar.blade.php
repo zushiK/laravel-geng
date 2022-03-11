@@ -12,6 +12,12 @@
                     </a>
                 </li>
                 <li class=" hover:bg-pink-50">
+                    <a href="{{ route('operator.tradelaw.edit') }}"
+                        class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                        特定商取引法
+                    </a>
+                </li>
+                <li class=" hover:bg-pink-50">
                     <a href="{{ route('operator.shikaku') }}"
                         class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
                         資格管理
@@ -21,6 +27,12 @@
                     <a href="{{ route('operator.shikaku') }}"
                         class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
                         資格管理
+                    </a>
+                </li>
+                <li class=" hover:bg-pink-50">
+                    <a href="{{ route('operator.mailtemplate') }}"
+                        class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                        メール設定
                     </a>
                 </li>
                 <li class=" hover:bg-pink-50">
