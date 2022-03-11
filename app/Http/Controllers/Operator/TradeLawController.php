@@ -29,6 +29,8 @@ class TradeLawController extends Controller
     public function edit():View
     {
         $trade_law = BaseInfo::find(config('database.info_column_id'));
+        // dump($trade_law);
+        // die;
         return view('operator.trade-law.edit', compact('trade_law'));
     }
 

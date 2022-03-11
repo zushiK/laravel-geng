@@ -105,6 +105,15 @@
                             </x-input-textarea>
                             <x-input-error> {{ $errors->first('law_term06') }}</x-input-error>
                         </div>
+                        <div class="col-span-3">
+                            <address-component :lawzip1={{ Js::from($trade_law->law_zip01) }}
+                                :lawzip2={{ Js::from($trade_law->law_zip02) }}
+                                :lawpref={{ Js::from($trade_law->law_pref) }}
+                                :lawaddr1={{ Js::from($trade_law->law_addr01) }}
+                                :lawaddr2={{ Js::from($trade_law->law_addr02) }}>
+
+                            </address-component>
+                        </div>
                     </div>
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
