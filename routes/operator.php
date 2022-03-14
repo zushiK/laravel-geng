@@ -14,7 +14,6 @@ use App\Http\Controllers\Operator\Auth\RegisteredUserController;
 use App\Http\Controllers\Operator\Auth\VerifyEmailController;
 use App\Http\Controllers\Operator\HomeController;
 use App\Http\Controllers\Operator\ShopMasterController;
-use App\Models\Operator;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Operator\OperatorController;
 
