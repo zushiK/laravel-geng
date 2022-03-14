@@ -1,42 +1,42 @@
 <?php
 namespace App\Services;
 
-use App\Repositories\ShikakuRepository;
-use App\Models\Shikaku;
+use App\Repositories\OperatorRepository;
+use App\Models\Operator;
 use Illuminate\Database\Eloquent\Collection;
 
-class ShikakuService
+class OperatorService
 {
     /**
-     * @var ShikakuRepository
+     * @var OperatorRepository
      */
-    private $shikaku_repository;
+    private $operator_repository;
 
-    public function __construct(ShikakuRepository $shikaku_repository)
+    public function __construct(OperatorRepository $operator_repository)
     {
-        $this->shikaku_repository = $shikaku_repository;
+        $this->operator_repository = $operator_repository;
     }
 
     /**
      * idから一つ取得
      *
      * @param integer $id
-     * @return Shikaku
+     * @return Operator
      */
-    public function findById(int $id):Shikaku
+    public function findById(int $id):Operator
     {
-        $shikaku = $this->shikaku_repository->findById($id);
-        return $shikaku;
+        $operator = $this->operator_repository->findById($id);
+        return $operator;
     }
 
     /**
      * 全件取得
      *
-     * @return Shikaku
+     * @return Operator
      */
     public function getAll():Collection
     {
-        return $this->shikaku_repository->getAll();
+        return $this->operator_repository->getAll();
     }
 
     /**
@@ -47,7 +47,7 @@ class ShikakuService
      */
     public function create(array $data):void
     {
-        $this->shikaku_repository->create($data);
+        $this->operator_repository->create($data);
     }
 
     /**
@@ -59,7 +59,7 @@ class ShikakuService
      */
     public function update(int $id, array $data):void
     {
-        $this->shikaku_repository->update($id, $data);
+        $this->operator_repository->update($id, $data);
     }
 
     /**
@@ -70,6 +70,6 @@ class ShikakuService
      */
     public function delete(int $id):void
     {
-        $this->shikaku_repository->delete($id);
+        $this->operator_repository->delete($id);
     }
 }

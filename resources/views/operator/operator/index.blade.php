@@ -2,36 +2,38 @@
     <x-operator.page-index>
         <div class="flex mx-4 mb-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
-                税率一覧
+                オペレータ一覧
             </div>
             <div class="text-right">
-                <x-button-new :route="route('operator.zeiritsu.create')">新規追加</x-button-new>
+                <x-button-new :route="route('operator.operator.create')">新規追加</x-button-new>
             </div>
         </div>
         <x-operator.page-index.table>
-            <x-operator.page-index.thead :titles="['消費税率','適用日時','操作']">
+            <x-operator.page-index.thead :titles="['名前','稼働','フィルドコード','操作']">
             </x-operator.page-index.thead>
             <x-operator.page-index.tbody>
-                @foreach ($zeiritsu_list as $zeiritsu)
+                @foreach ($operator_list as $operator)
                     <x-operator.page-index.trow>
                         <x-operator.page-index.tcell>
-                            {{ $zeiritsu->tax_rate }}％
+                            {{ $operator->name }}
                         </x-operator.page-index.tcell>
                         <x-operator.page-index.tcell>
-                            {{ $zeiritsu->apply_date }}
+                            {{ $operator->is_active->label() }}
+                        </x-operator.page-index.tcell>
+                        <x-operator.page-index.tcell>
+                            {{ $operator->fld_code }}
                         </x-operator.page-index.tcell>
                         <x-operator.page-index.tcell>
                             <div class="inline-flex">
-                                <x-button-edit :route="route('operator.zeiritsu.edit', $zeiritsu->tax_rule_id)">
+                                <x-button-edit :route="route('operator.operator.edit', $operator->id)">
                                     編集
                                 </x-button-edit>
                                 <div class="ml-2">
-                                    <form action="{{ route('operator.zeiritsu.delete', $zeiritsu->tax_rule_id) }}"
+                                    <form action="{{ route('operator.operator.delete', $operator->id) }}"
                                         method="POST">
                                         @method('delete')
                                         @csrf
-                                        <x-button-delete
-                                            :route="route('operator.zeiritsu.delete', $zeiritsu->tax_rule_id)">
+                                        <x-button-delete :route="route('operator.operator.delete', $operator->id)">
                                             削除
                                         </x-button-delete>
                                     </form>
