@@ -65,7 +65,6 @@ Route::middleware('auth:operator')->group(function () {
         function () {
             Route::get('/', 'edit')->name('shop-master');
             Route::post('/update', 'update')->name('shop-master.update'); //編集実行
-            Route::delete('/delete/{id}', 'destroy')->name('shop-master.delete'); //削除実行
         }
     );
     Route::controller(TradeLawController::class)->prefix('tradelaw')->group(
