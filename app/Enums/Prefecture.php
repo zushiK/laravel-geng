@@ -104,6 +104,7 @@ enum Prefecture: int
               Prefecture::OKINAWA => "沖縄"
         };
     }
+
     public static function toArray(): array
     {
         $cases = static::cases();
