@@ -4,8 +4,8 @@
 
             <div class="w-1/2 md:pl-0">
                 <a href="{{ route('operator.home') }}"
-                    class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold" href="#">
-                    🐕NBCLaravel😸
+                    class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold " href="#">
+                    <img src="{{ asset('img/logo.svg') }}" class="w-28">
                 </a>
             </div>
             <div class="w-1/2 pr-0">
