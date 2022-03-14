@@ -64,16 +64,11 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-// import { defineComponent } from 'vue';
 
-// interface Props {
-//   lawzip1: number;
-// }
+<script setup lang="ts">
 import { ref } from 'vue';
 import axios from 'axios';
-const jsonpAdapter = require('axios-jsonp');
-// import jsonpAdapter from 'axios-jsonp';
+import jsonpAdapter from 'axios-jsonp';
 
 const props = defineProps({
   addresslabel: {
