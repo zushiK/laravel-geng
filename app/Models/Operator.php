@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OperatorIsActive;
 use App\Models\Base\BaseAuthModel;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -19,8 +20,9 @@ class Operator extends BaseAuthModel
     protected $hidden = ['password'];
     
     protected $casts = [
-        'is_active' => 'boolean',
+        'is_active' => OperatorIsActive::class,
         'fld_code_list' => 'array',
+
     ];
 
     //自動的にCarbonインスタンスへキャスト
