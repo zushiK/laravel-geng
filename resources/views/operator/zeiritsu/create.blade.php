@@ -3,7 +3,7 @@
     <div class="container mx-auto flex flex-col">
         <div class="flex m-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
-                税率設定
+                税率追加
             </div>
         </div>
         <form action="{{ route('operator.zeiritsu.store') }}" method="POST">
