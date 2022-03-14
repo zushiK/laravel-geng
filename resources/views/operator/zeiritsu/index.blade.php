@@ -2,14 +2,14 @@
     <x-operator.page-index>
         <div class="flex mx-4 mb-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
-                資格一覧
+                税率一覧
             </div>
             <div class="text-right">
                 <x-button-new :route="route('operator.zeiritsu.create')">新規追加</x-button-new>
             </div>
         </div>
         <x-operator.page-index.table>
-            <x-operator.page-index.thead :titles="['消費税率','課税規則','操作']">
+            <x-operator.page-index.thead :titles="['消費税率','適用日時','操作']">
             </x-operator.page-index.thead>
             <x-operator.page-index.tbody>
                 @foreach ($zeiritsu_list as $zeiritsu)
