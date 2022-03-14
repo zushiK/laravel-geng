@@ -44,7 +44,7 @@
             <div class="order-1 md:order-2 m-auto">
                 <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
                     href="{{ route('customer.home') }}">
-                    🐕NBCLaravel😸
+                    <img src="{{ asset('img/logo.svg') }}" class="w-28">
                 </a>
             </div>
 
