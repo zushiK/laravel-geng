@@ -141,9 +141,13 @@ const address = ref({
   add2NameJs: props.add2name
 });
 
-const prefArray = ref([]);
+interface prefData {
+  prefcode: number;
+  prefname: string;
+}
+const prefArray = ref<Array<prefData>>();
 const errorArray = ref({ zipcode: '' });
-function getAddressByZipcode(val1: number, val2: number) {
+function getAddressByZipcode(val1: string, val2: string) {
   const zipcode = val1 + val2;
   const zipstring = String(zipcode);
 
