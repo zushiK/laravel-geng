@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-
       - name: Install packages
         if: steps.cache-node-modules.outputs.cache-hit
-        run: npm ci
+        run: npm install
       - name: exec ESlint Prettier
         run: npm run fix
       - name: Cache php-cs-fixer
