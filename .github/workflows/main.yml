@@ -13,22 +13,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: Cache node modules
-        id: cache_node_modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          # npm キャッシュファイルは Linux/macOS の `~/.npm` に保存される
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          cache: npm
       - name: Install packages
-        if: steps.cache-node-modules.outputs.cache-hit = 'true'
-        run: npm ci
+        run: npm install
       - name: exec ESlint Prettier
         run: npm run fix
       - name: Cache php-cs-fixer
@@ -42,7 +29,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
       - name: install php-cs-fixer
-        if: steps.cache_php_cs_fixer.outputs.cache-hit = 'true'
+        if: steps.cache_php_cs_fixer.outputs.cache-hit != 'true'
         run: composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer --with-all-dependencies
       - name: exec php-cs-fixer
         run: |
