@@ -27,6 +27,20 @@
                             <x-input-error> {{ $errors->first('law_manager') }}</x-input-error>
                         </div>
                         <div class="col-span-3">
+                            <address-component :addresslabel="{{ Js::from('所在地') }}"
+                                :zip1="{{ Js::from($trade_law->law_zip01) }}"
+                                :zip1name="{{ Js::from('law_zip01') }}"
+                                :zip2="{{ Js::from($trade_law->law_zip02) }}"
+                                :zip2name="{{ Js::from('law_zip02') }}" :pref={{ Js::from($trade_law->law_pref) }}
+                                :prefname="{{ Js::from('law_pref') }}"
+                                :add1="{{ Js::from($trade_law->law_addr01) }}"
+                                :add1name="{{ Js::from('law_addr01') }}"
+                                :add1="{{ Js::from($trade_law->law_addr01) }}"
+                                :add2name="{{ Js::from('law_addr02') }}"
+                                :add2="{{ Js::from($trade_law->law_addr02) }}">
+                            </address-component>
+                        </div>
+                        <div class="col-span-3">
                             <x-input-tel name01="law_tel01" name02="law_tel02" name03="law_tel03"
                                 value01="{{ old('law_tel01', $trade_law->law_tel01) }}"
                                 value02="{{ old('law_tel02', $trade_law->law_tel02) }}"
@@ -105,15 +119,7 @@
                             </x-input-textarea>
                             <x-input-error> {{ $errors->first('law_term06') }}</x-input-error>
                         </div>
-                        <div class="col-span-3">
-                            <address-component :lawzip1={{ Js::from($trade_law->law_zip01) }}
-                                :lawzip2={{ Js::from($trade_law->law_zip02) }}
-                                :lawpref={{ Js::from($trade_law->law_pref) }}
-                                :lawaddr1={{ Js::from($trade_law->law_addr01) }}
-                                :lawaddr2={{ Js::from($trade_law->law_addr02) }}>
 
-                            </address-component>
-                        </div>
                     </div>
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

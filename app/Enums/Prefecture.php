@@ -104,4 +104,16 @@ enum Prefecture: int
               Prefecture::OKINAWA => "沖縄"
         };
     }
+    public static function toArray(): array
+    {
+        $cases = static::cases();
+        $array = [];
+        foreach ($cases as $enum) {
+            // $array[$enum->value] = $enum->label();
+            $array[$enum->value]['prefcode'] = $enum->value;
+            $array[$enum->value]['prefname'] = $enum->label();
+        }
+
+        return $array;
+    }
 }
