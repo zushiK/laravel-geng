@@ -27,7 +27,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install packages
-        if: steps.cache-node-modules.outputs.cache-hit = 'true'
+        if: steps.cache-node-modules.outputs.cache-hit
         run: npm ci
       - name: exec ESlint Prettier
         run: npm run fix
@@ -42,7 +42,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
       - name: install php-cs-fixer
-        if: steps.cache_php_cs_fixer.outputs.cache-hit = 'true'
+        if: steps.cache_php_cs_fixer.outputs.cache-hit
         run: composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer --with-all-dependencies
       - name: exec php-cs-fixer
         run: |
