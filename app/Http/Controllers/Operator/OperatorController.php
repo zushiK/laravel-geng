@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Operator;
 use App\Enums\OperatorIsActive;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Operator\OperatorRequest;
-use App\Models\Shikaku;
+use App\Models\Operator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Services\OperatorService;
@@ -55,10 +55,10 @@ class OperatorController extends Controller
     {
         $data = [
             'name' => $request->name,
-            'name_short' => $request->name_short,
-            'rate' => $request->rate,
-            'code' => $request->code,
-            'struct' => $request->struct,
+            'login_id' => $request->login_id,
+            'password' => $request->password,
+            'fld_code_list' => $request->fld_code_list,
+            'is_active' => $request->is_active,
         ];
         $this->operator_service->create($data);
         return redirect()->route('operator.operator')->with('message', '資格を追加しました');
@@ -99,14 +99,14 @@ class OperatorController extends Controller
     {
         $data = [
             'name' => $request->name,
-            'name_short' => $request->name_short,
-            'rate' => $request->rate,
-            'code' => $request->code,
-            'struct' => $request->struct,
+            'login_id' => $request->login_id,
+            'password' => $request->password,
+            'fld_code_list' => $request->fld_code_list,
+            'is_active' => $request->is_active,
         ];
 
         $this->operator_service->update($id, $data);
-        return redirect()->route('operator.operator')->with('message', '資格を編集しました。');
+        return redirect()->route('operator.operator')->with('message', 'オペレータを編集しました。');
     }
 
     /**
@@ -115,9 +115,9 @@ class OperatorController extends Controller
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function destroy(int $id):RedirectResponse
+    public function delete(int $id):RedirectResponse
     {
-        Shikaku::find($id)->delete();
-        return redirect()->route('operator.operator')->with('message', '資格を削除しました。');
+        $this->operator_service->delete($id);
+        return redirect()->route('operator.operator')->with('message', 'オペレータを削除しました。');
     }
 }

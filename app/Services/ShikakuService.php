@@ -61,4 +61,15 @@ class ShikakuService
     {
         $this->shikaku_repository->update($id, $data);
     }
+
+    /**
+     * 削除
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function delete(int $id):void
+    {
+        $this->shikaku_repository->delete($id);
+    }
 }

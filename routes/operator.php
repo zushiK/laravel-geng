@@ -38,7 +38,7 @@ Route::middleware('auth:operator')->group(function () {
             Route::post('/store', 'store')->name('shikaku.store'); //新規作成実行
             Route::get('/edit/{id}', 'edit')->name('shikaku.edit'); //編集画面
             Route::post('/update/{id}', 'update')->name('shikaku.update'); //編集実行
-            Route::delete('/delete/{id}', 'destroy')->name('shikaku.delete'); //削除実行
+            Route::delete('/delete/{id}', 'delete')->name('shikaku.delete'); //削除実行
         }
     );
     Route::controller(ZeiritsuController::class)->prefix('zeiritsu')->group(
@@ -58,7 +58,7 @@ Route::middleware('auth:operator')->group(function () {
             Route::post('/store', 'store')->name('operator.store'); //新規作成実行
             Route::get('/edit/{id}', 'edit')->name('operator.edit'); //編集画面
             Route::post('/update/{id}', 'update')->name('operator.update'); //編集実行
-            Route::delete('/delete/{id}', 'destroy')->name('operator.delete'); //削除実行
+            Route::delete('/delete/{id}', 'delete')->name('operator.delete'); //削除実行
         }
     );
     Route::controller(ShopMasterController::class)->prefix('shop-master')->group(

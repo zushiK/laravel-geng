@@ -114,9 +114,9 @@ class ShikakuController extends Controller
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function destroy(int $id):RedirectResponse
+    public function delete(int $id):RedirectResponse
     {
-        Shikaku::find($id)->delete();
+        $this->shikaku_service->delete($id);
         return redirect()->route('operator.shikaku')->with('message', '資格を削除しました。');
     }
 }

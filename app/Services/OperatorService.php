@@ -61,4 +61,15 @@ class OperatorService
     {
         $this->operator_repository->update($id, $data);
     }
+
+    /**
+     * 削除
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function delete(int $id):void
+    {
+        $this->operator_repository->delete($id);
+    }
 }

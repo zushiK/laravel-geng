@@ -60,7 +60,7 @@
                             </a>
                             <a href="{{ route('operator.operator') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
-                                オペレーター管理
+                                オペレータ管理
                             </a>
                         </div>
                     </li>
