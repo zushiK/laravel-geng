@@ -1,13 +1,10 @@
 <x-app-layout>
-
-
     <x-operator.page-edit>
         <div class="flex m-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
                 特定商取引法
             </div>
         </div>
-
         <form action="{{ route('operator.tradelaw.update', $trade_law->id) }}" method="POST">
             @csrf
             <x-operator.page-edit.form-inner>
@@ -24,6 +21,16 @@
                         運営責任者
                     </x-input>
                     <x-input-error> {{ $errors->first('law_manager') }}</x-input-error>
+                </div>
+                <div class="col-span-6">
+                    <address-component :addresslabel="{{ Js::from('所在地') }}"
+                        :zip1="{{ Js::from($trade_law->law_zip01) }}" :zip1name="{{ Js::from('law_zip01') }}"
+                        :zip2="{{ Js::from($trade_law->law_zip02) }}" :zip2name="{{ Js::from('law_zip02') }}"
+                        :pref={{ Js::from($trade_law->law_pref) }} :prefname="{{ Js::from('law_pref') }}"
+                        :add1="{{ Js::from($trade_law->law_addr01) }}" :add1name="{{ Js::from('law_addr01') }}"
+                        :add1="{{ Js::from($trade_law->law_addr01) }}" :add2name="{{ Js::from('law_addr02') }}"
+                        :add2="{{ Js::from($trade_law->law_addr02) }}">
+                    </address-component>
                 </div>
                 <div class="col-span-6">
                     <x-input-tel name01="law_tel01" name02="law_tel02" name03="law_tel03"
@@ -98,9 +105,7 @@
                     </x-input-textarea>
                     <x-input-error> {{ $errors->first('law_term06') }}</x-input-error>
                 </div>
-
             </x-operator.page-edit.form-inner>
         </form>
     </x-operator.page-edit>
-
 </x-app-layout>

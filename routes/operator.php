@@ -20,6 +20,8 @@ Route::controller(AuthenticatedSessionController::class)->group(
 
 
 Route::middleware('auth:operator')->group(function () {
+    Route::get('/pref', [HomeController::class, 'pref'])->name('pref');
+    Route::get('/prefname/{prefname}', [HomeController::class, 'prefname'])->name('prefname');
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
