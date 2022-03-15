@@ -63,6 +63,6 @@ class MailTemplateController extends Controller
             'footer' => $request->footer,
         ];
         $this->mailtemplate_service->update($id, $data);
-        return redirect()->route('operator.mailtemplate')->with('message', 'メール設定を編集しました。');
+        return redirect()->route('operator.mailtemplate')->with('message', 'メールテンプレートを編集しました。');
     }
 }

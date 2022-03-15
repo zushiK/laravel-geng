@@ -2,7 +2,7 @@
     <x-operator.page-index>
         <div class="flex mx-4 mb-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
-                メールテンプレート 一覧
+                メールテンプレート一覧
             </div>
         </div>
         <x-operator.page-index.table>

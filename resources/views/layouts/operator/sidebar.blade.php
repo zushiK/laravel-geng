@@ -41,7 +41,7 @@
                     <li class=" hover:bg-pink-50">
                         <a href="{{ route('operator.mailtemplate') }}"
                             class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
-                            メール設定
+                            メールテンプレート
                         </a>
                     </li>
                     <li class=" hover:bg-pink-50">

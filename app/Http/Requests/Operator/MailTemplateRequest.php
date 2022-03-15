@@ -24,10 +24,9 @@ class MailTemplateRequest extends FormRequest
     public function rules()
     {
         return [
-            'template_id' => 'required',
             'subject' => 'required|string|max:255',
-            // 'header' => 'required|string|max:255',
-            // 'footer' => 'required|string|max:1000',
+            'header' => 'string|max:3000',
+            'footer' => 'string|max:3000',
         ];
     }
 
@@ -36,6 +35,8 @@ class MailTemplateRequest extends FormRequest
         return [
             'template_id' => 'テンプレート ',
             'subject' => 'メールタイトル',
+            'header' => 'ヘッダー',
+            'footer' => 'フッター',
         ];
     }
 }

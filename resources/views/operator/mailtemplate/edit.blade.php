@@ -2,7 +2,7 @@
     <x-operator.page-edit>
         <div class="flex m-4 justify-between">
             <div class="text-gray-900 text-3xl font-extrabold tracking-tight">
-                メール設定 / {{ $mailtemplate->template_id->label() }}
+                メールテンプレート編集 / {{ $mailtemplate->template_id->label() }}
             </div>
         </div>
 

@@ -54,7 +54,7 @@
                             </a>
                             <a href="{{ route('operator.mailtemplate') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
-                                メール設定
+                                メールテンプレート
                             </a>
                             <a href="{{ route('operator.shikaku') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
