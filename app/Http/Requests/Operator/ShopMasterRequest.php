@@ -33,7 +33,7 @@ class ShopMasterRequest extends FormRequest
             'shop_name_eng' => 'required|string|max:50',
             'zip01' => 'required|digits:3',
             'zip02' => 'required|digits:4',
-            'pref' => ['required',new Enum(Prefecture::class)],
+            'pref' => ['required', new Enum(Prefecture::class)],
             'addr01' => 'required|string|max:200',
             'addr02' => 'required|string|max:200',
             'tel01' => 'required|digits:4',
@@ -73,9 +73,7 @@ class ShopMasterRequest extends FormRequest
             'email01' => '商品注文受付メールアドレス',
             'email02' => '問い合わせ受付メールアドレス',
             'email03' => 'メール送信元メールアドレス',
-            'email04' =>
-
-            '送信エラー受付メールアドレス',
+            'email04' => '送信エラー受付メールアドレス',
         ];
     }
 }

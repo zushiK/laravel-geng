@@ -15,7 +15,7 @@ class Customer extends BaseAuthModel
     //既存のテーブルはカラムが多いので基本的には$fillableではなく$gaurdedで指定する
     protected $guarded = ['customer_id'];
 
-    protected $hidden = ['password','new_password'];
+    protected $hidden = ['password', 'new_password'];
 
     protected $casts = [
         'is_active' => 'boolean',

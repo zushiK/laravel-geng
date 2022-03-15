@@ -38,8 +38,8 @@
                     <x-input-error>{{ $errors->first('shop_kana') }}</x-input-error>
                 </div>
                 <div class="col-span-6">
-                    <x-input name="shop_kana" value="{{ old('shop_kana', $baseinfo->shop_kana) }}" required
-                        attention="(上限50文字)">店名(英語表記)
+                    <x-input name="shop_name_eng" value="{{ old('shop_name_eng', $baseinfo->shop_name_eng) }}"
+                        required attention="(上限50文字)">店名(英語表記)
                     </x-input>
                     <x-input-error>{{ $errors->first('shop_kana') }}</x-input-error>
                 </div>

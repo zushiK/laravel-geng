@@ -30,7 +30,7 @@ class ShikakuRequest extends FormRequest
             'name' => 'required|max:255',
             'name_short' => 'required|max:255',
             'rate' => 'required|integer',
-            'struct' => ['required',new Enum(ShikakuStruct::class)], //Enum使う
+            'struct' => ['required', new Enum(ShikakuStruct::class)], //Enum使う
         ];
     }
 
