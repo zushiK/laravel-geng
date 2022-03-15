@@ -27,12 +27,11 @@ class ZeiritsuController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+
      * @return View
      */
     public function index():View
     {
-        // dump(Auth::user());die;
         $zeiritsu_list = $this->zeiritsu_service->getAll();
         return view('operator.zeiritsu.index', compact('zeiritsu_list'));
     }
@@ -94,7 +93,7 @@ class ZeiritsuController extends Controller
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function destroy(int $id):RedirectResponse
+    public function delete(int $id):RedirectResponse
     {
         Zeiritsu::find($id)->delete();
         return redirect()->route('operator.zeiritsu')->with('message', '税率を削除しました。');
