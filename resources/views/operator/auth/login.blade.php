@@ -1,9 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <img src="{{ asset('img/logo.svg') }}" alt="" class="w-40">
         </x-slot>
 
         <!-- Session Status -->
@@ -17,42 +15,36 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="login_id" :value="__('Login id')" />
 
                 <x-input id="login_id" class="block mt-1 w-full" type="text" name="login_id" :value="old('login_id')"
-                    required autofocus />
+                    required autofocus>
+                    ログインID
+                </x-input>
+
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="current-password" />
+                    autocomplete="current-password">
+                    パスワード
+                </x-input>
             </div>
 
             <!-- Remember Me -->
-            <div class="block mt-4">
+            {{-- <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox"
                         class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
+            </div> --}}
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                        href="{{ route('operator.password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <button type="submit">
-
-                    {{ __('Log in') }}
-                </button>
+                <x-button-submit>
+                    ログイン
+                </x-button-submit>
             </div>
         </form>
     </x-auth-card>
