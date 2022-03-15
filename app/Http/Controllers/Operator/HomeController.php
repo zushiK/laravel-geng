@@ -22,10 +22,4 @@ class HomeController extends Controller
     {
         return view('operator.index');
     }
-
-    public function pref()
-    {
-        $pref_list = Prefecture::toArray();
-        return response()->json(array('prefArray' => $pref_list));
-    }
 }

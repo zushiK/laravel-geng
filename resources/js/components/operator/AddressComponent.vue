@@ -181,7 +181,7 @@ function getAddressByZipcode(val1: string, val2: string) {
 }
 
 function getPrefArray() {
-  axios.get('/operator/pref').then((response) => {
+  axios.get('/api/pref').then((response) => {
     prefArray.value = response.data.prefArray;
   });
 }
