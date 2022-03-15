@@ -15,7 +15,7 @@ class OperatorRepository
     {
         $this->operator = $operator;
     }
-    
+
     public function findById(int $id):Operator
     {
         return $this->operator->find($id);
@@ -36,7 +36,7 @@ class OperatorRepository
         $operator = $this->findById($id);
         $operator->update($data);
     }
-    
+
     public function delete(int $id):void
     {
         $operator = $this->findById($id);

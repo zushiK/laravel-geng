@@ -10,9 +10,9 @@ class BaseAuthModel extends Authenticatable
     use SoftDeleteFlagTrait;
 
     const CREATED_AT = 'create_date';
-    
+
     const UPDATED_AT = 'update_date';
-    
+
     const DELETED_AT = 'del_flg';
 
     public function getIdAttribute()

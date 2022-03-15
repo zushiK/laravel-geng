@@ -32,7 +32,7 @@ class OperatorController extends Controller
         $operator_list = $this->operator_service->getAll();
         return view('operator.operator.index', compact('operator_list'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *

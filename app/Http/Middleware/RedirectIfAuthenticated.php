@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
     private const GUARD_CUSTOMER = 'customer';
-    
+
     private const GUARD_OPERATOR = 'operator';
-    
+
     private const GUARD_ECCUBE_CUSTOMER = 'eccube_customer';
 
     public function handle(Request $request, Closure $next, ...$guards)

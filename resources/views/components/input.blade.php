@@ -4,7 +4,7 @@
 <label for="{{ $name }}" class="block text-sm font-medium text-gray-700">
     {{ $slot }}
     @if ($required)
-        <span class="mt-2 text-sm text-red-500">必須</span>
+        <span class="ml-1 text-xs text-red-500">必須</span>
     @endif
 </label>
 <div class="mt-1 flex rounded-md shadow-sm">
