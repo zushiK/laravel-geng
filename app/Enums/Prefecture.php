@@ -105,9 +105,9 @@ enum Prefecture: int
         };
     }
 
-    public function toArray(): array
+    public static function toArray(): array
     {
-        $cases = Prefecture::cases();
+        $cases = static::cases();
         $array = [];
         foreach ($cases as $enum) {
             $array[$enum->value]['prefcode'] = $enum->value;
