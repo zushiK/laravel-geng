@@ -29,11 +29,39 @@
                         <div
                             class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
                             <a href="{{ route('operator.shop-master') }}"
-                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 SHOPマスタ
                             </a>
+                            <a href="{{ route('operator.tradelaw') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
+                                特商法設定
+                            </a>
                             <a href="{{ route('operator.operator') }}"
-                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
+                                配送方法設定
+                            </a>
+                            <a href="{{ route('operator.operator') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
+                                支払方法設定
+                            </a>
+                            <a href="{{ route('operator.operator') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
+                                ポイント設定
+                            </a>
+                            <a href="{{ route('operator.zeiritsu') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
+                                税率設定
+                            </a>
+                            <a href="{{ route('operator.mailtemplate') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
+                                メール設定
+                            </a>
+                            <a href="{{ route('operator.shikaku') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
+                                資格マスタ
+                            </a>
+                            <a href="{{ route('operator.operator') }}"
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 オペレータ管理
                             </a>
                         </div>
@@ -54,7 +82,7 @@
                         <div
                             class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
                             <a href="{{ route('operator.shikaku') }}"
-                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 資格管理
                             </a>
                         </div>
@@ -76,7 +104,7 @@
                         <div
                             class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
                             <a href="{{ route('operator.shikaku') }}"
-                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 資格管理
                             </a>
                         </div>
@@ -98,7 +126,7 @@
                         <div
                             class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
                             <a href="{{ route('operator.shikaku') }}"
-                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 資格管理
                             </a>
                         </div>
@@ -120,7 +148,7 @@
                         <div
                             class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
                             <a href="{{ route('operator.shikaku') }}"
-                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
+                                class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 資格管理
                             </a>
                         </div>

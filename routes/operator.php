@@ -63,7 +63,7 @@ Route::middleware('auth:operator')->group(function () {
     );
     Route::controller(TradeLawController::class)->prefix('tradelaw')->group(
         function () {
-            Route::get('/', 'edit')->name('tradelaw.edit'); //編集画面
+            Route::get('/', 'edit')->name('tradelaw'); //編集画面
             Route::post('/update', 'update')->name('tradelaw.update'); //編集実行
         }
     );
