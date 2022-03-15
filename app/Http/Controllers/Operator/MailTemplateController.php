@@ -3,18 +3,12 @@
 namespace App\Http\Controllers\Operator;
 
 use App\Enums\MailTemplateName;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Operator\MailTemplateRequest;
 use App\Models\MailTemplate;
 use App\Services\MailTemplateService;
-
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-
-use Auth;
-use Carbon\Carbon;
 
 class MailTemplateController extends Controller
 {
@@ -56,7 +50,7 @@ class MailTemplateController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  ZeiritsuRequest $request
+     * @param  MailTemplateRequest $request
      * @param  int  $id
      * @return RedirectResponse
      */

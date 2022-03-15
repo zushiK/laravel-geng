@@ -43,7 +43,7 @@ Route::middleware('auth:operator')->group(function () {
                 Route::post('/store', 'store')->name('zeiritsu.store'); //新規作成実行
                 Route::get('/edit/{id}', 'edit')->name('zeiritsu.edit'); //編集画面
                 Route::post('/update/{id}', 'update')->name('zeiritsu.update'); //編集実行
-                Route::delete('/delete/{id}', 'destroy')->name('zeiritsu.delete'); //削除実行
+                Route::delete('/delete/{id}', 'delete')->name('zeiritsu.delete'); //削除実行
             }
         );
         Route::controller(OperatorController::class)->prefix('operator')->group(
