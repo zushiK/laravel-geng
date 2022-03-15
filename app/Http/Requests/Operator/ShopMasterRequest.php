@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Operator;
 
+use App\Enums\Prefecture;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Enums\ShikakuStruct;
 use Illuminate\Validation\Rules\Enum;
 
 class ShopMasterRequest extends FormRequest
