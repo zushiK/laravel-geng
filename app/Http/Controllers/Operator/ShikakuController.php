@@ -32,7 +32,7 @@ class ShikakuController extends Controller
         $shikaku_list = $this->shikaku_service->getAll();
         return view('operator.shikaku.index', compact('shikaku_list'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *

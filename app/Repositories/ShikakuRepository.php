@@ -15,7 +15,7 @@ class ShikakuRepository
     {
         $this->shikaku = $shikaku;
     }
-    
+
     public function findById(int $id):Shikaku
     {
         return $this->shikaku->find($id);
@@ -36,7 +36,7 @@ class ShikakuRepository
         $shikaku = $this->findById($id);
         $shikaku->update($data);
     }
-    
+
     public function delete(int $id):void
     {
         $shikaku = $this->findById($id);

@@ -46,7 +46,7 @@ class MigrateFromEccubeController extends Controller
         $user->update([
             'new_password' => Hash::make($request->password),
         ]);
-        
+
         // 指定しないとauth.phpのdefaultが呼ばれる
         Auth::guard('customer')->login($user);
 

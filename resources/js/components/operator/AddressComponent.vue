@@ -1,11 +1,11 @@
 <template>
-  <div class="col-span-6">
-    <label for="" class="block text-sm font-medium text-gray-700">
-      {{ address.addresslabelJs }}
-      <span v-if="address.hissuJs" class="mt-2 text-sm text-red-500">必須</span>
-    </label>
-    <div>
-      <label for="" class="block mt-4 text-sm font-medium text-gray-700"> 郵便番号 </label>
+  <label for="" class="block text-sm font-medium text-gray-700">
+    {{ address.addresslabelJs }}
+    <span class="ml-1 text-xs text-red-500">必須</span>
+  </label>
+  <div>
+    <div class="mt-4">
+      <label for="" class="block text-sm font-medium text-gray-700"> 郵便番号 </label>
       <div class="flex mt-1">
         <input
           :id="address.zip1NameJs"
@@ -34,7 +34,10 @@
         <p class="mt-2 text-sm text-red-500">{{ errorArray.zipcode }}</p>
       </div>
     </div>
-    <div class="mt-3 flex">
+  </div>
+  <div class="mt-4">
+    <div class="flex flex-col">
+      <label class="block text-sm font-medium text-gray-700">都道府県</label>
       <select
         :id="address.prefNameJs"
         v-model="address.prefJs"
@@ -47,7 +50,9 @@
         </option>
       </select>
     </div>
-    <label for="" class="block mt-3 text-sm font-medium text-gray-700"> 市区町村名 (例：千代田区神田神保町) </label>
+  </div>
+  <div class="mt-4">
+    <label for="" class="block text-sm font-medium text-gray-700"> 市区町村名 (例：千代田区神田神保町) </label>
     <div class="mt-1 flex rounded-md shadow-sm">
       <input
         :id="address.add1NameJs"
@@ -58,9 +63,9 @@
       />
     </div>
     <span class="mt-2 text-sm text-red-500">(上限200文字)</span>
-    <label :for="address.add2NameJs" class="block mt-3 text-sm font-medium text-gray-700">
-      番地・ビル名 (例：1-3-5)
-    </label>
+  </div>
+  <div class="mt-4">
+    <label :for="address.add2NameJs" class="block text-sm font-medium text-gray-700"> 番地・ビル名 (例：1-3-5) </label>
     <div class="mt-1 flex rounded-md shadow-sm">
       <input
         :id="address.add2NameJs"

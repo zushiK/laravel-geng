@@ -43,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/customer.php'));
-                
+
             Route::prefix('operator')
                 ->as('operator.')
                 ->middleware('web')

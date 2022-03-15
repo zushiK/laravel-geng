@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'login_id' => $request->login_id,
             'password' => Hash::make($request->password),
-            'fld_code_list' => [1,2,3],
+            'fld_code_list' => [1, 2, 3],
         ]);
 
         event(new Registered($user));

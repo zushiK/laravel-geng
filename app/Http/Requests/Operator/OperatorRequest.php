@@ -31,7 +31,7 @@ class OperatorRequest extends FormRequest
             'name' => 'required|string|max:255',
             'login_id' => ['required', 'string', 'max:255', Rule::unique('dtb_operators')->ignore($this->login_id, 'operator_id')],
             'password' => ['required', 'confirmed', Password::defaults()],
-            'is_active' => ['required',new Enum(OperatorIsActive::class)],
+            'is_active' => ['required', new Enum(OperatorIsActive::class)],
         ];
     }
 

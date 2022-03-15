@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Operator;
 
+use App\Enums\Prefecture;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
 
 class TradeLawRequest extends FormRequest
 {
@@ -28,7 +30,7 @@ class TradeLawRequest extends FormRequest
             'law_manager' => 'required|string|max:50',
             'law_zip01' => 'required|digits:3',
             'law_zip02' => 'required|digits:4',
-            'law_pref' => 'required',
+            'law_pref' => ['required', new Enum(Prefecture::class)],
             'law_addr01' => 'required|string|max:200',
             'law_addr02' => 'required|string|max:200',
             'law_tel01' => 'required|digits:4',

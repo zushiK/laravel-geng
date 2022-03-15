@@ -29,8 +29,6 @@ class TradeLawController extends Controller
     public function edit():View
     {
         $trade_law = BaseInfo::find(config('database.info_column_id'));
-        // dump($trade_law);
-        // die;
         return view('operator.trade-law.edit', compact('trade_law'));
     }
 
@@ -65,6 +63,6 @@ class TradeLawController extends Controller
                 'law_term06' => $request->law_term06,
             ]
         );
-        return redirect()->route('operator.tradelaw.edit')->with('message', '特定商取引法を編集しました。');
+        return redirect()->route('operator.tradelaw')->with('message', '特定商取引法を編集しました。');
     }
 }

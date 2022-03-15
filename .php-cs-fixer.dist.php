@@ -20,6 +20,9 @@ return $config
       'class_attributes_separation' => true, //use HasApiTokens, HasFactory, Notifiable; これが縦にならないように
       'array_indentation' => true, //配列整形できるように
       'binary_operator_spaces' => true,
+      'no_whitespace_before_comma_in_array' => true,
+      'no_whitespace_in_blank_line' => true,
+      'whitespace_after_comma_in_array' => true,
   ])
   ->setFinder($finder)
   ->setCacheFile(__DIR__ . '/.php-cs-fixer.cache');

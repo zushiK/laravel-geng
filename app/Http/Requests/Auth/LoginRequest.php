@@ -50,7 +50,7 @@ class LoginRequest extends FormRequest
             $guard = 'operator';
             if (! Auth::guard($guard)->attempt($this->only('login_id', 'password'), $this->boolean('remember'))) {
                 RateLimiter::hit($this->throttleKey());
-            
+
                 throw ValidationException::withMessages([
                     'login_id' => trans('auth.failed'),
                 ]);
@@ -66,7 +66,7 @@ class LoginRequest extends FormRequest
                     ]);
                 }
             }
-            
+
             RateLimiter::clear($this->throttleKey());
         }
     }
