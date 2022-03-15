@@ -81,9 +81,9 @@
                         </a>
                         <div
                             class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
-                            <a href="{{ route('operator.shikaku') }}"
+                            <a href="{{ route('operator.product') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
-                                資格管理
+                                商品マスタ
                             </a>
                         </div>
                     </li>
