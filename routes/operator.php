@@ -6,6 +6,7 @@ use App\Http\Controllers\Operator\TradeLawController;
 use App\Http\Controllers\Operator\ZeiritsuController;
 use App\Http\Controllers\Operator\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Operator\HomeController;
+use App\Http\Controllers\Operator\PointController;
 use App\Http\Controllers\Operator\ShopMasterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Operator\OperatorController;
@@ -73,6 +74,12 @@ Route::middleware('auth:operator')->group(function () {
                 Route::get('/', 'index')->name('mailtemplate'); //一覧画面
                 Route::get('/edit/{id}', 'edit')->name('mailtemplate.edit'); //編集画面
                 Route::post('/update/{id}', 'update')->name('mailtemplate.update'); //編集実行
+            }
+        );
+        Route::controller(PointController::class)->prefix('point')->group(
+            function () {
+                Route::get('/', 'edit')->name('point'); //編集画面
+                Route::post('/update', 'update')->name('point.update'); //編集実行
             }
         );
     });
