@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Operator;
 
+use App\Enums\MailTemplateName;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Operator\MailTemplateRequest;
 use App\Models\MailTemplate;
@@ -19,12 +21,12 @@ class MailTemplateController extends Controller
     /**
      * @var MailTemplateService
      */
-    // private $mailtemplate_service;
+    private $mailtemplate_service;
 
-    // public function __construct(MailTemplateService $mailtemplate_service)
-    // {
-    //     $this->mailtemplate_service = $mailtemplate_service;
-    // }
+    public function __construct(MailTemplateService $mailtemplate_service)
+    {
+        $this->mailtemplate_service = $mailtemplate_service;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -33,22 +35,9 @@ class MailTemplateController extends Controller
      */
     public function index():View
     {
-        dump("メール設定");
-        die;
-    }
-
-    public function create():View
-    {
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param ZeiritsuRequest $request
-     * @return RedirectResponse
-     */
-    public function store(ZeiritsuRequest $request):RedirectResponse
-    {
+        $mailtemplate_list = MailTemplate::all();
+        $mailtemplate_name = MailTemplateName::cases();
+        return view('operator.mailtemplate.index', compact('mailtemplate_list', 'mailtemplate_name'));
     }
 
     /**
@@ -59,6 +48,9 @@ class MailTemplateController extends Controller
      */
     public function edit(int $id):View
     {
+        $mailtemplate = $this->mailtemplate_service->findById($id);
+        $mailtemplate_name = MailTemplateName::cases();
+        return view('operator.mailtemplate.edit', compact('mailtemplate', 'mailtemplate_name'));
     }
 
     /**
@@ -68,17 +60,15 @@ class MailTemplateController extends Controller
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function update(ZeiritsuRequest $request, int $id):RedirectResponse
+    public function update(MailTemplateRequest $request, int $id):RedirectResponse
     {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return RedirectResponse
-     */
-    public function destroy(int $id):RedirectResponse
-    {
+        $data = [
+            'template_id' => $request->template_id,
+            'subject' => $request->subject,
+            'header' => $request->header,
+            'footer' => $request->footer,
+        ];
+        $this->mailtemplate_service->update($id, $data);
+        return redirect()->route('operator.mailtemplate')->with('message', 'メール設定を編集しました。');
     }
 }

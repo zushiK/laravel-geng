@@ -21,7 +21,6 @@ Route::controller(AuthenticatedSessionController::class)->group(
 
 Route::middleware('auth:operator')->group(function () {
     Route::get('/pref', [HomeController::class, 'pref'])->name('pref');
-    Route::get('/prefname/{prefname}', [HomeController::class, 'prefname'])->name('prefname');
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
@@ -70,11 +69,8 @@ Route::middleware('auth:operator')->group(function () {
     Route::controller(MailTemplateController::class)->prefix('mailtemplate')->group(
         function () {
             Route::get('/', 'index')->name('mailtemplate'); //一覧画面
-            Route::get('/create', 'create')->name('mailtemplate.create'); //新規作成画面
-            Route::post('/store', 'store')->name('mailtemplate.store'); //新規作成実行
             Route::get('/edit/{id}', 'edit')->name('mailtemplate.edit'); //編集画面
             Route::post('/update/{id}', 'update')->name('mailtemplate.update'); //編集実行
-            Route::delete('/delete/{id}', 'destroy')->name('mailtemplate.delete'); //削除実行
         }
     );
 });
