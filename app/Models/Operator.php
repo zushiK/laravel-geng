@@ -29,12 +29,12 @@ class Operator extends BaseAuthModel
         'update_date'
     ];
 
-     /**
-     * フィルドコードリスト
-     * setter/getter設定
-     *
-     * @return Attribute
-     */
+    /**
+    * フィルドコードリスト
+    * setter/getter設定
+    *
+    * @return Attribute
+    */
     public function fldCodeList(): Attribute
     {
         return Attribute::make(
