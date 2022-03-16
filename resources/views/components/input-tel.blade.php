@@ -13,19 +13,19 @@
         {{ $attributes->merge([
             'class' => 'w-24 focus:ring-indigo-500 focus:border-indigo-500 block rounded sm:text-sm border-gray-300',
         ]) }}
-        maxlength="4">
+        maxlength="6">
     <span class="inline-block align-middle px-3">-</span>
     <input type="{{ $type }}" name="{{ $name02 }}" value="{{ $value02 }}" id="{{ $name02 }}"
         {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }}
         {{ $attributes->merge([
             'class' => 'w-24 focus:ring-indigo-500 focus:border-indigo-500 block rounded sm:text-sm border-gray-300',
         ]) }}
-        maxlength="3">
+        maxlength="6">
     <span class="inline-block align-middle px-3">-</span>
     <input type="{{ $type }}" name="{{ $name03 }}" value="{{ $value03 }}"
         id="{{ $name03 }}" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }}
         {{ $attributes->merge([
             'class' => 'w-24 focus:ring-indigo-500 focus:border-indigo-500 block rounded sm:text-sm border-gray-300',
         ]) }}
-        maxlength="3">
+        maxlength="6">
 </div>

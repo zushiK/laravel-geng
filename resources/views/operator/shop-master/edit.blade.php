@@ -8,7 +8,7 @@
         </div>
 
         @php
-            
+
         @endphp
         <form action="{{ route('operator.shop-master.update') }}" method="POST">
             @csrf
@@ -45,12 +45,13 @@
                 </div>
                 <div class="col-span-6">
                     <address-component :hissu="{{ Js::from(true) }}" :addresslabel="{{ Js::from('所在地') }}"
-                        :zip1="{{ Js::from($baseinfo->zip01) }}" :zip1name="{{ Js::from('zip01') }}"
-                        :zip2="{{ Js::from($baseinfo->zip02) }}" :zip2name="{{ Js::from('zip02') }}"
-                        :pref={{ Js::from($baseinfo->pref) }} :prefname="{{ Js::from('pref') }}"
-                        :add1="{{ Js::from($baseinfo->addr01) }}" :add1name="{{ Js::from('addr01') }}"
-                        :add1="{{ Js::from($baseinfo->addr01) }}" :add2name="{{ Js::from('addr02') }}"
-                        :add2="{{ Js::from($baseinfo->addr02) }}">
+                        :zip1="{{ Js::from(old('zip01', $baseinfo->zip01)) }}" :zip1name="{{ Js::from('zip01') }}"
+                        :zip2="{{ Js::from(old('zip02', $baseinfo->zip02)) }}" :zip2name="{{ Js::from('zip02') }}"
+                        :pref={{ Js::from(old('pref', $baseinfo->pref)) }} :prefname="{{ Js::from('pref') }}"
+                        :add1="{{ Js::from(old('addr01', $baseinfo->addr01)) }}"
+                        :add1name="{{ Js::from('addr01') }}"
+                        :add2="{{ Js::from(old('addr02', $baseinfo->addr02)) }}"
+                        :add2name="{{ Js::from('addr02') }}">
                     </address-component>
                 </div>
 

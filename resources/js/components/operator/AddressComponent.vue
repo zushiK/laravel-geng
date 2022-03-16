@@ -44,7 +44,7 @@
         :name="address.prefNameJs"
         class="w-28 focus:ring-indigo-500 focus:border-indigo-500 block rounded sm:text-sm border-gray-300"
       >
-        <option value="都道府県を選択">都道府県を選択</option>
+        <option value="">都道府県を選択</option>
         <option v-for="prefoption in prefArray" :key="prefoption.prefcode" :value="prefoption.prefcode">
           {{ prefoption.prefname }}
         </option>
@@ -171,6 +171,9 @@ function getAddressByZipcode(val1: string, val2: string) {
           address.value.prefJs = response.data.results[0].prefcode;
           address.value.add1Js = response.data.results[0].address2 + response.data.results[0].address3;
         } else {
+          address.value.prefJs = 0;
+          address.value.add1Js = '';
+          address.value.add2Js = '';
           errorArray.value.zipcode = '該当する住所が見つかりませんでした。';
         }
       })
