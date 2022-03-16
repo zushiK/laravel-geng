@@ -12,6 +12,7 @@ use App\Http\Controllers\Operator\ShopMasterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Operator\OperatorController;
 use App\Http\Controllers\Operator\ProductMasterController;
+use App\Http\Controllers\Operator\DelivController;
 
 // ログイン処理
 Route::controller(AuthenticatedSessionController::class)->group(
@@ -89,6 +90,12 @@ Route::middleware('auth:operator')->group(function () {
                 Route::get('/', 'index')->name('payment'); //一覧画面
                 Route::get('/edit/{id}', 'edit')->name('payment.edit'); //編集画面
                 Route::post('/update/{id}', 'update')->name('payment.update'); //編集実行
+            }
+        );
+        Route::controller(DelivController::class)->prefix('deliv')->group(
+            function () {
+                Route::get('/', 'edit')->name('deliv'); //編集
+                Route::post('/update', 'update')->name('deliv.update'); //編集実行
             }
         );
     });

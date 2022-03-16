@@ -31,7 +31,7 @@
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 特商法設定
                             </a>
-                            <a href="{{ route('operator.operator') }}"
+                            <a href="{{ route('operator.deliv') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 配送方法設定
                             </a>

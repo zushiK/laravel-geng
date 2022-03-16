@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Operator;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Operator\TradeLawRequest;
-use App\Models\Baseinfo;
+use App\Models\BaseInfo;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
