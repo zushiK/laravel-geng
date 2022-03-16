@@ -24,12 +24,16 @@
                 </div>
                 <div class="col-span-6">
                     <address-component :hissu="{{ Js::from(true) }}" :addresslabel="{{ Js::from('所在地') }}"
-                        :zip1="{{ Js::from($trade_law->law_zip01) }}" :zip1name="{{ Js::from('law_zip01') }}"
-                        :zip2="{{ Js::from($trade_law->law_zip02) }}" :zip2name="{{ Js::from('law_zip02') }}"
-                        :pref={{ Js::from($trade_law->law_pref) }} :prefname="{{ Js::from('law_pref') }}"
-                        :add1="{{ Js::from($trade_law->law_addr01) }}" :add1name="{{ Js::from('law_addr01') }}"
-                        :add1="{{ Js::from($trade_law->law_addr01) }}" :add2name="{{ Js::from('law_addr02') }}"
-                        :add2="{{ Js::from($trade_law->law_addr02) }}">
+                        :zip1="{{ Js::from(old('law_zip01', $trade_law->law_zip01)) }}"
+                        :zip1name="{{ Js::from('law_zip01') }}"
+                        :zip2="{{ Js::from(old('law_zip02', $trade_law->law_zip02)) }}"
+                        :zip2name="{{ Js::from('law_zip02') }}"
+                        :pref={{ Js::from(old('law_pref', $trade_law->law_pref)) }}
+                        :prefname="{{ Js::from('law_pref') }}"
+                        :add1="{{ Js::from(old('law_addr01', $trade_law->law_addr01)) }}"
+                        :add1name="{{ Js::from('law_addr01') }}"
+                        :add2="{{ Js::from(old('law_addr02', $trade_law->law_addr02)) }}"
+                        :add2name="{{ Js::from('law_addr02') }}">
                     </address-component>
                 </div>
                 <div class="col-span-6">

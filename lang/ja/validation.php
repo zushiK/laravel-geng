@@ -43,6 +43,7 @@ return [
     'distinct' => ':attributeには異なった値を指定してください。',
     'email' => ':attributeには、有効なメールアドレスを指定してください。',
     'ends_with' => ':attributeには、:valuesのどれかで終わる値を指定してください。',
+    'enum' => '選択された:attributeは正しくありません。',
     'exists' => '選択された:attributeは正しくありません。',
     'file' => ':attributeにはファイルを指定してください。',
     'filled' => ':attributeに値を指定してください。',
