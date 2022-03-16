@@ -20,7 +20,7 @@ class OperatorSeeder extends Seeder
             'name' => 'UserName',
             'login_id' => 'operator',
             'password' => Hash::make('password'),
-            'fld_code_list' => '[]',
+            'fld_code_list' => json_encode(['selected' => [1, 23, 45]]),
             'create_date' => now(),
             'update_date' => now(),
         ]);

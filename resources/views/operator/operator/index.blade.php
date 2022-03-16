@@ -21,7 +21,7 @@
                             {{ $operator->is_active->label() }}
                         </x-operator.page-index.tcell>
                         <x-operator.page-index.tcell>
-                            {{ $operator->fld_code }}
+                            {{ implode(' / ', $operator->fld_code_list) }}
                         </x-operator.page-index.tcell>
                         <x-operator.page-index.tcell>
                             <div class="inline-flex">

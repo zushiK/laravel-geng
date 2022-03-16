@@ -57,7 +57,7 @@ class OperatorController extends Controller
             'name' => $request->name,
             'login_id' => $request->login_id,
             'password' => $request->password,
-            'fld_code_list' => $request->fld_code_list,
+            'fld_code_list' => explode(',', $request->fld_code_list),
             'is_active' => $request->is_active,
         ];
         $this->operator_service->create($data);

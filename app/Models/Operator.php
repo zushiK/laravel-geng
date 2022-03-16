@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Enums\OperatorIsActive;
 use App\Models\Base\BaseAuthModel;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Operator extends BaseAuthModel
 {
@@ -21,8 +21,6 @@ class Operator extends BaseAuthModel
 
     protected $casts = [
         'is_active' => OperatorIsActive::class,
-        'fld_code_list' => 'array',
-
     ];
 
     //自動的にCarbonインスタンスへキャスト
@@ -30,4 +28,18 @@ class Operator extends BaseAuthModel
         'create_date',
         'update_date'
     ];
+
+    /**
+    * フィルドコードリスト
+    * setter/getter設定
+    *
+    * @return Attribute
+    */
+    public function fldCodeList(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => json_decode($value)->selected,
+            set: fn ($value) => ['fld_code_list' => json_encode(['selected' => $value])],
+        );
+    }
 }

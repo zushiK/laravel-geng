@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-span-3">
                     <x-input name="fld_code_list"
-                        value="{{ old('fld_code_list', implode($operator->fld_code_list)) }}">フィルドコード
+                        value="{{ old('fld_code_list', implode(',', $operator->fld_code_list)) }}">フィルドコード
                     </x-input>
                     <x-input-error>{{ $errors->first('fld_code_list') }}</x-input-error>
                 </div>
