@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Operator\ShopMasterRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use App\Models\Baseinfo;
+use App\Models\BaseInfo;
 
 class ShopMasterController extends Controller
 {
