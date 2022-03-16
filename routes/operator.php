@@ -10,6 +10,7 @@ use App\Http\Controllers\Operator\PointController;
 use App\Http\Controllers\Operator\ShopMasterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Operator\OperatorController;
+use App\Http\Controllers\Operator\ProductMasterController;
 
 // ログイン処理
 Route::controller(AuthenticatedSessionController::class)->group(
@@ -86,7 +87,16 @@ Route::middleware('auth:operator')->group(function () {
 
     // 商品管理
     Route::prefix('product')->group(function () {
-        // some routes
+        Route::controller(ProductMasterController::class)->prefix('product_master')->group(
+            function () {
+                Route::get('/', 'index')->name('product'); //一覧画面
+                Route::get('/create', 'create')->name('product.create'); //新規作成画面
+                Route::post('/store', 'store')->name('product.store'); //新規作成実行
+                Route::get('/edit/{id}', 'edit')->name('product.edit'); //編集画面
+                Route::post('/update/{id}', 'update')->name('product.update'); //編集実行
+                Route::delete('/delete/{id}', 'delete')->name('product.delete'); //削除実行
+            }
+        );
     });
     // 会員管理
     Route::prefix('customer')->group(function () {

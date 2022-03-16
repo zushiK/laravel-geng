@@ -1,12 +1,7 @@
 <header>
-    <nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
+    <nav id="header" class="bg-white fixed w-full z-20 top-0 shadow">
         <div class="w-full container mx-auto flex flex-wrap items-center mt-0 py-2 md:pb-0">
-
-
-
-
-
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white z-20"
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white"
                 id="nav-content">
                 <a href="{{ route('operator.home') }}"
                     class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold " href="#">
@@ -81,9 +76,9 @@
                         </a>
                         <div
                             class="opacity-0 group-hover:visible group-hover:opacity-100 transition invisible absolute left-0 z-20 py-1 bg-white border border-gray-100 rounded-md shadow-xl lg:left-auto lg:right-0 w-full">
-                            <a href="{{ route('operator.shikaku') }}"
+                            <a href="{{ route('operator.product') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
-                                資格管理
+                                商品マスタ
                             </a>
                         </div>
                     </li>
