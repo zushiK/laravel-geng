@@ -40,6 +40,8 @@
                         TEL
                     </x-input-tel>
                     <x-input-error> {{ $errors->first('law_tel01') }}</x-input-error>
+                    <x-input-error> {{ $errors->first('law_tel02') }}</x-input-error>
+                    <x-input-error> {{ $errors->first('law_tel03') }}</x-input-error>
                 </div>
                 <div class="col-span-6">
                     <x-input-tel name01="law_fax01" name02="law_fax02" name03="law_fax03"

@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class=" hover:bg-pink-50">
-                        <a href="{{ route('operator.shikaku') }}"
+                        <a href="{{ route('operator.payment') }}"
                             class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800">
                             支払方法設定
                         </a>

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Operator;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MailTemplateRequest extends FormRequest
+class PaymentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,19 @@ class MailTemplateRequest extends FormRequest
     public function rules()
     {
         return [
-            'subject' => 'required|string|max:255',
-            'header' => 'nullable|string|max:3000',
-            'footer' => 'nullable|string|max:3000',
+            'charge' => 'required|integer|min:0',
+            'rule_max' => 'nullable|integer|min:0',
+            'upper_rule' => 'nullable|integer|min:0',
+
         ];
     }
 
     public function attributes()
     {
         return [
-            'subject' => 'メールタイトル',
-            'header' => 'ヘッダー',
-            'footer' => 'フッター',
+            'charge' => '手数料',
+            'rule_max' => '利用条件(円)',
+            'upper_rule' => '利用条件(円)',
         ];
     }
 }

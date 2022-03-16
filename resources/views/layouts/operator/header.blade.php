@@ -35,11 +35,11 @@
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 配送方法設定
                             </a>
-                            <a href="{{ route('operator.operator') }}"
+                            <a href="{{ route('operator.payment') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 支払方法設定
                             </a>
-                            <a href="{{ route('operator.operator') }}"
+                            <a href="{{ route('operator.point') }}"
                                 class="block px-4 py-2 text-gray-500  duration-200 transform  hover:text-gray-800 hover:bg-pink-50">
                                 ポイント設定
                             </a>
