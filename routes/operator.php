@@ -6,6 +6,7 @@ use App\Http\Controllers\Operator\TradeLawController;
 use App\Http\Controllers\Operator\ZeiritsuController;
 use App\Http\Controllers\Operator\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Operator\HomeController;
+use App\Http\Controllers\Operator\PaymentController;
 use App\Http\Controllers\Operator\PointController;
 use App\Http\Controllers\Operator\ShopMasterController;
 use Illuminate\Support\Facades\Route;
@@ -81,6 +82,13 @@ Route::middleware('auth:operator')->group(function () {
             function () {
                 Route::get('/', 'edit')->name('point'); //編集画面
                 Route::post('/update', 'update')->name('point.update'); //編集実行
+            }
+        );
+        Route::controller(PaymentController::class)->prefix('payment')->group(
+            function () {
+                Route::get('/', 'index')->name('payment'); //一覧画面
+                Route::get('/edit/{id}', 'edit')->name('payment.edit'); //編集画面
+                Route::post('/update/{id}', 'update')->name('payment.update'); //編集実行
             }
         );
     });
