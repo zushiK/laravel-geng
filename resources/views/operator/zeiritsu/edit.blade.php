@@ -10,7 +10,7 @@
             @csrf
             <x-operator.page-edit.form-inner>
                 <div class="col-span-3">
-                    <x-input name="tax_rate" value="{{ old('tax_rate', $zeiritsu->tax_rate) }}" required>
+                    <x-input name="tax_rate" value="{{ old('tax_rate', $zeiritsu->tax_rate) }}" required unit="%">
                         消費税率
                     </x-input>
                     <x-input-error> {{ $errors->first('tax_rate') }}</x-input-error>

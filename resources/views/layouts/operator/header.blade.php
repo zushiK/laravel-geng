@@ -1,12 +1,7 @@
 <header>
-    <nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
+    <nav id="header" class="bg-white fixed w-full z-20 top-0 shadow">
         <div class="w-full container mx-auto flex flex-wrap items-center mt-0 py-2 md:pb-0">
-
-
-
-
-
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white z-20"
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white"
                 id="nav-content">
                 <a href="{{ route('operator.home') }}"
                     class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold " href="#">
