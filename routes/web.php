@@ -13,5 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// 一般・会員はroutes/customer.php
-// 管理者はroutes/operator.php
+Route::controller(\App\Http\Controllers\TempController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+});
+
+Route::apiResource('/temp', \App\Http\Controllers\TempController::class);

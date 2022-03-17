@@ -10,14 +10,6 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: npm
-      - name: Install packages
-        run: npm install
-      - name: exec ESlint Prettier
-        run: npm run fix
       - name: Cache php-cs-fixer
         uses: actions/cache@v2
         id: cache_php_cs_fixer

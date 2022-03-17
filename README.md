@@ -1,4 +1,6 @@
 # ステッチDXプロジェクト バックエンド
+APIサーバーとして利用するため、jsonで返信する以外の機構は取り外してあります。
+https://github.com/SAI-DEV01/stitch-dx-back
 
 ## 機能要件
 - PHP > 8.0

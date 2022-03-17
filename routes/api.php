@@ -18,8 +18,3 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
-Route::get('/pref', function () {
-    $pref_list = Prefecture::toArray();
-    return response()->json(array('prefArray' => $pref_list));
-});

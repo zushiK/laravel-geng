@@ -27,10 +27,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        // ECcube認証登録
-        Auth::provider('eccube', function ($app, array $config) {
-            return new EccubeUserProvider(new EccubeHasher, $config['model']);
-        });
     }
 }

@@ -17,11 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const CUSTOMER_HOME = '/';
-
-    public const OPERATOR_HOME = '/operator';
-
-    public const ECCUBE_MIGRATE = '/migrate';
+    public const HOME = '/home';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -35,20 +31,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::prefix('api')
                 ->middleware('api')
-                ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::prefix('/')
-                ->as('customer.')
-                ->middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/customer.php'));
-
-            Route::prefix('operator')
-                ->as('operator.')
-                ->middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/operator.php'));
+            Route::middleware('web')
+                ->group(base_path('routes/web.php'));
         });
     }
 
