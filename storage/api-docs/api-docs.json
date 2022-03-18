@@ -1,0 +1,174 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Example",
+        "description": "API description",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/temp": {
+            "get": {
+                "tags": [
+                    "temp"
+                ],
+                "description": "Temp index",
+                "operationId": "5b51179782f2046f290e4d9d6970bc37",
+                "responses": {
+                    "default": {
+                        "description": "APIエラー時の返却データ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "description": "エラー値(0:正常/1:エラー)",
+                                            "type": "integer"
+                                        },
+                                        "errorId": {
+                                            "description": "エラーID",
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "description": "エラーコード",
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "description": "エラーメッセージ",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "temp"
+                ],
+                "summary": "Find Temp",
+                "description": "Temp store",
+                "operationId": "c8afae8986e6a75532fb77b9c74a3f8f",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/temp/{id}": {
+            "get": {
+                "tags": [
+                    "temp"
+                ],
+                "summary": "Find Temp",
+                "description": "Temp index",
+                "operationId": "d8508f288fe2331a32245450edc233a1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of temp return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:projects",
+                            "read:projects"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "temp"
+                ],
+                "summary": "Update Temp",
+                "description": "Temp update",
+                "operationId": "007e09de66769754dc5604db96852a9e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of temp return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "temp"
+                ],
+                "summary": "Delete Temp",
+                "description": "Temp delete",
+                "operationId": "e3f723ab0c7f8aacf25fc1cf69f1a216",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of temp return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

@@ -19,7 +19,7 @@ class Service
      */
     public function find(int $id)
     {
-        $zeiritsu = $this->repository->findById($id);
+        $zeiritsu = $this->repository->find($id);
         return $zeiritsu;
     }
 
