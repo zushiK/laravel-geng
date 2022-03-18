@@ -1,0 +1,18 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Database\Eloquent\Model;
+
+class DummyClass extends Model
+{
+    /**
+     * Table Name
+     * デフォルトはクラス名の複数形 スネークケース
+     */
+    // protected $table = 'DummyLowerModel';
+
+    protected $fillable = [
+        "name",
+    ];
+}
